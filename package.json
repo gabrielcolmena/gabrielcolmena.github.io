@@ -28,5 +28,9 @@
     "gulp-jsmin": "^0.1.5",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0"
+  },
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-route": "^1.6.4"
   }
 }

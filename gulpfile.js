@@ -6,9 +6,9 @@ const gulp 	   	= require('gulp'),
 
 gulp.task('scripts', () => {
 	console.log('\x1b[36m', 'Concat scripts' ,'\x1b[0m');
-	gulp.src(['./src/js/*.js','./src/*/*.js'])
+	gulp.src(['./src/js/*.js'])
 		.pipe(concat('main.js'))
-		.pipe(gulp.dest('./src/'));
+		.pipe(gulp.dest('./dist/js/'));
 });
 
 gulp.task('sass', () => {
@@ -20,18 +20,18 @@ gulp.task('sass', () => {
 		.pipe(gulp.dest('./dist/css'));
 });
 
-gulp.task('compress', ['scripts'], () => {
-	console.log('\x1b[36m', 'Minifying files' ,'\x1b[0m');
-    gulp.src('./src/main.js')
-        .pipe(jsmin())
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest('./dist/js'));
-});
+// gulp.task('compress', ['scripts'], () => {
+// 	console.log('\x1b[36m', 'Minifying files' ,'\x1b[0m');
+//     gulp.src('./src/main.js')
+//         .pipe(jsmin())
+//         .pipe(rename({suffix: '.min'}))
+//         .pipe(gulp.dest('./dist/js'));
+// });
 
 gulp.task('watch', () => {
 	gulp.watch('./src/sass/*.sass', ['sass']);
-	gulp.watch('./src/**/*.js', ['scripts', 'compress']);
+	gulp.watch('./src/js/*.js', ['scripts']);
 });
 
-gulp.task('default', ['scripts', 'sass', 'compress', 'watch']);
+gulp.task('default', ['scripts', 'sass', 'watch']);
 

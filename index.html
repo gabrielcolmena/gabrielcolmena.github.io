@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app='gabrielcolmena'>
 <head>
 	<meta charset="UTF-8">
-	<title>Gabrielcolmenares / devleoper</title>
+	<link href='./dist/img/fav.png' rel='shortcut icon' type='image/png'/>
+	<title>developer / UI designer</title>
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
+	<link rel="stylesheet" href="./dist/css/styles.css">
 </head>
-<body>
-	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde placeat, debitis explicabo, sed voluptate dignissimos ullam at iure dolorum facere, ratione eum aspernatur aliquid eaque nesciunt neque tenetur blanditiis. Aut?
+<body ng-controller='initController'>
+
+	<div ng-view id='main-container'>Loading...</div>
+
 </body>
+	<script src='./node_modules/angular/angular.min.js'></script>
+	<script src='./node_modules/angular-route/angular-route.min.js'></script>
+	<script src='./dist/js/main.js'></script>
 </html>
