@@ -1,18 +1,31 @@
 <!DOCTYPE html>
-<html lang="en" ng-app='gabrielcolmena'>
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link href='./dist/img/fav.png' rel='shortcut icon' type='image/png'/>
-	<title>developer / UI designer</title>
-	<link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
-	<link rel="stylesheet" href="./dist/css/styles.css">
+	<title>Testing</title>
+	<meta property="og:url"           content="http://www.fcf.com.co/appoficial/" />
+	<meta property="og:type"          content="article" />
+	<meta property="og:title"         content="Super James" />
+	<meta property="og:description"   content="James Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo" />
+	<meta property="og:image"         content="./img/superball.png" />
 </head>
-<body ng-controller='initController'>
-
-	<div ng-view id='main-container'>Loading...</div>
-
+<style>
+	*{margin: 0; padding: 0;}
+	.container{
+		width: 40%;
+		margin: 100px auto;
+		font-family: Arial;
+		color: rgba(0,0,0,.8);
+	}
+	.container > p{
+		text-align: center;
+		font-style: italic;
+		border-bottom: 1px solid rgba(0,0,0,.1)
+	}
+</style>
+<body>
+	<div class="container">
+		<p>Testing page for dynamically use of <b>facebook</b> meta tags</p>
+	</div>
 </body>
-	<script src='./node_modules/angular/angular.min.js'></script>
-	<script src='./node_modules/angular-route/angular-route.min.js'></script>
-	<script src='./dist/js/main.js'></script>
 </html>
