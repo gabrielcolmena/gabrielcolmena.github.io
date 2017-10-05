@@ -1,0 +1,45 @@
+<div class="full-container flex-v space-between">
+	<div class="form-container">
+		<div class="flex-h space-between">
+			<div class="flex-v">
+				<h3 class="title dark-color">Create a new post</h3>
+			</div>
+			<div class="flex-h f-start light-button transition">
+				<div class='flex-h dark-color'>
+					<div class="flex-v">
+						<p>Send to</p>
+					</div>
+					<div class="flex-v">
+						<i class='f-22 ion-android-arrow-forward'></i>
+					</div>					
+				</div>
+			</div>
+		</div>
+		<form action="#" class='dark-color w-100 post-form'>
+			<div class="flex-v f-start input-wrapper w-100">
+				<input id="title" name="title" type="text" placeholder="post title" [(ngModel)]="postData.title" #name="ngModel">
+			</div>
+			<textarea id="description" name="description" type="text" placeholder="post description" [(ngModel)]="postData.description" #name="ngModel" cols="30" rows="5" class='w-100'></textarea>
+			<div class="flex-h space-between">
+				<div class="flex-h">
+					<p class="validation-message transition f-12" [ngClass]="{'active': !isValidated}">{{validationMessage}}</p>
+				</div>
+				<div class='flex-h'>
+					<div class="icon-button transition">
+						<i class='f-30 ion-android-attach'></i>
+					</div>
+					<app-switchable 
+					class='f-30 flex-v' 
+					iconOn="ion-android-notifications" 
+					iconOff="ion-android-notifications-off"
+					[state]="postData.notification"
+					(sender)="postData.notification = $event"></app-switchable>
+					<p>&nbsp;&nbsp;&nbsp;</p>
+				</div>
+			</div>
+			<div class='flex-h f-start'>
+				<button class="gradient-button transition" (click)="validate()">send</button>
+			</div>
+		</form>
+	</div>
+</div>

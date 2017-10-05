@@ -1,6 +1,12 @@
-# @gabrielcolmena
+# CoacherApp
 
-I’m Gabriel Colmenares a 21 years old full-stack web developer and UI/UX designer since 2015.
-I love to build 3d low poly models and pixel art spritesheets on my free time.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.4.
 
-contact me at gbrieldcg@gmail.com
+## Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Coacher App
+
+Content management system for mobile apps connected to Firebase
+

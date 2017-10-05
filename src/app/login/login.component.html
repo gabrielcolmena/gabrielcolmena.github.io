@@ -1,0 +1,44 @@
+<div class="logo-wraper flex-h">
+	<div>
+		<img src="./assets/images/crown.png" alt="Logo image">
+	</div>
+	<div>
+		<p class="f-20 title">Coacher App</p>
+		<p class='f-10'>some slogan</p>
+	</div>
+</div>
+
+<div class="full flex-v main-container transition">
+	<div class="form-container card flex">
+		<div class="flex-h space-between w-100">
+			<div class="cool-line"></div>
+			<div class='w-100 flex-v space-between'>
+				<div class="flex-h f-start w-100">
+					<h2 class='dark-color'>Login</h2>
+				</div>
+				<form action="#" class='flex-v dark-color'>
+					<div class="flex-h f-start input-wrapper">
+						<i class="ion-android-person"></i>
+						<input type="text" placeholder="username">
+					</div>
+					<div class="flex-h f-start input-wrapper">
+						<i class="ion-android-lock"></i>
+						<input type="password" placeholder="password">
+						<i class="ion-eye"></i>
+					</div>
+					<a routeLiner="forgot-password" id='forgot-link' class='t-center'>forgot password</a>
+					<p class="validation-message t-center"></p>
+					<div class='c-container'>
+						<button class="gradient-button transition" routerLink="/dashboard">login</button>
+					</div>
+				</form>
+				<div></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<footer>
+	<p class='grey-color t-center f-12'>CoacherApp admin © all rights reserved 2017</p>
+</footer>

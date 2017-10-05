@@ -1,0 +1,15 @@
+<div class="flex-v full-container">
+	<p class="title t-center dark-color">Whould you like to {{actionType}} a:</p>
+	<div class="c-container flex-h">
+		<div class="flex-v">
+			<div class="flex-h">
+				<div *ngFor="let element of elements"  class='flex-v router-element transition' routerLink="{{element.routerLink}}">
+					<div class="flex-h">
+						<img src="{{element.path}}" alt="{{element.title}}">
+					</div>
+					<p class='t-center f-14 dark-color'>{{element.title}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

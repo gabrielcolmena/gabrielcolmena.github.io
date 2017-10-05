@@ -1,0 +1,13 @@
+<div class='flex-v'>
+	<div 
+	*ngFor="let item of panelItems" 
+	[ngClass]="{'active': activeElement == item.labelText.toLowerCase()}"
+	class="panel-item transition" 
+	routerLink="{{item.routerLink}}" 
+	(click)="myMethod(item)">
+		<div class="flex-h image-container">
+			<img src="{{item.mainImage}}" alt="">
+		</div>		
+		<p class="t-center dark-color f-12">{{item.labelText}}</p>
+	</div>
+</div>
