@@ -19,7 +19,7 @@
 
 ###### Nota
 
-######Para correr y probar las apps se recomienda utilizar un dispositivo físico mas sin embargo ocacionalmente será necesario hacer uso del emulador de xCode para probar features o issues en dispositivos específicos
+_Para correr y probar las apps se recomienda utilizar un dispositivo físico mas sin embargo ocacionalmente será necesario hacer uso del emulador de xCode para probar features o issues en dispositivos específicos_
 
 
 
