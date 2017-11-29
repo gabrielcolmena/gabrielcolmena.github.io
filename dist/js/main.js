@@ -15,11 +15,15 @@ app.config(($routeProvider) => {
 
 app.controller('initController', function($scope, $http) {
 	console.log('Welcome');
+
+	$scope.values = {
+		header: ['Inicio', 'Acerca de mi', 'Contacto', 'Portafolio', 'CV']
+	}
 });
 
 app.controller('mainController', function($scope, $http) {
 	console.log('Controller:main');
 	let container = document.querySelector('#main-container');
 	container.classList.add('screen-size', 'flex-v', 'space-between', 'background');
-	container.style.background = 'url(./dist/img/background.jpg)';
+	//container.style.background = 'url(./dist/img/background.jpg)';
 });
