@@ -7,23 +7,26 @@
 
 #### Descargar el repositorio
 
-	*https://github.com/2WaySportsLLC/<AppName>*
+	https://github.com/2WaySportsLLC/<AppName>
 
 #### Instalar pods
 
 	```bash
 	pod install
+	```
 
 #### Correr aplicación
 
 	```
 	cmd + R
+	```
 
 Nota:
 
 	Para correr y probar las apps se recomienda utilizar un dispositivo físico mas sin embargo ocacionalmente será necesario hacer uso del emulador de xCode para probar features o issues en dispositivos específicos
 
-..................Done
+
+
 
 Manejo de git / issues / features:
 
@@ -31,18 +34,20 @@ Manejo de git / issues / features:
 
 		```bash
 		git checkout develop
-		```bash
 		git pull origin develop
+		```
 
 	Una vez hecho esto se procede a crear una nueva rama relacioada a la actividad a desarrollar
 
 		```bash
 		git checkout -b <actividad>/<usuario_responsable>/<numero_de_ticket>
-		
-		ejemplo:
+		```
+
+	##### ejemplo:
 
 			```bash
 			git checkout -b feature/gabriel/ticket-1
+			```
 
 	Una vez creada la rama, el usuario responsable será el único a cargo de esta
 	
