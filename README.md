@@ -17,7 +17,7 @@
 
 	cmd + R
 
-Nota:
+###### Nota
 
 Para correr y probar las apps se recomienda utilizar un dispositivo físico mas sin embargo ocacionalmente será necesario hacer uso del emulador de xCode para probar features o issues en dispositivos específicos
 
@@ -26,7 +26,7 @@ Para correr y probar las apps se recomienda utilizar un dispositivo físico mas 
 
 #### Manejo de git / issues / features:
 
-Al iniciar el desarrollo de un nuevo feature o issue se debe comenzar con la actualización del repositorio local, respecto a la rama *develop* en el repositorio remoto. Para esto se pueden ejecutar los siguientes comandos:
+Al iniciar el desarrollo de un nuevo feature o issue se debe comenzar con la actualización del repositorio local, respecto a la rama _develop_ en el repositorio remoto. Para esto se pueden ejecutar los siguientes comandos:
 
 		git checkout develop
 		git pull origin develop
@@ -41,9 +41,9 @@ Una vez hecho esto se procede a crear una nueva rama relacioada a la actividad a
 
 Una vez creada la rama, el usuario responsable será el único a cargo de esta
 	
-Al finalizar cada día esta rama debe ser actualizada con uno o varios *commits* describiendo el trabajo realizado a lo largo del día, así como el trabajo restante por hacer para completar la actividad relacionada con la rama
+Al finalizar cada día esta rama debe ser actualizada con uno o varios _commits_ describiendo el trabajo realizado a lo largo del día, así como el trabajo restante por hacer para completar la actividad relacionada con la rama
 
-Cuando la actividad queda completada se procede a realizar un *pull request* contra la rama *develop* para que el *team_lead* de la plataforma evalúe el estado del código y así poder hacer merge con la rama *develop*. En el caso de ser *swift* el lenguaje empleado, para que el código se considere apto para un *merge* debe seguir esta guía de estilos *(https://github.com/raywenderlich/swift-style-guide)*. En caso de ser rechazado el *pull request* el encargado de la rama deberá modificar el código señalado por el *team_lead* hasta que este sea apto para mezclar con la rama *develop*
+Cuando la actividad queda completada se procede a realizar un _pull request_ contra la rama _develop_ para que el _team_lead_ de la plataforma evalúe el estado del código y así poder hacer merge con la rama _develop_. En el caso de ser _swift_ el lenguaje empleado, para que el código se considere apto para un _merge_ debe seguir esta guía de estilos _(https://github.com/raywenderlich/swift-style-guide)_. En caso de ser rechazado el _pull request_ el encargado de la rama deberá modificar el código señalado por el _team_lead_ hasta que este sea apto para mezclar con la rama _develop_
 
 
 
