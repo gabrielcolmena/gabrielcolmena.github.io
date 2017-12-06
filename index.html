@@ -1,15 +1,165 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  	<meta charset="utf-8">
-  	<title>CoacherApp</title>
-  	<base href="/">
-	<link href="https://fonts.googleapis.com/css?family=Mukta" rel="stylesheet">
-	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-  	<meta name="viewport" content="width=device-width, initial-scale=1">
-  	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<meta charset="UTF-8">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+    <script src="./js/SnowflyGameApi.js"></script>
+    <script src="./js/jquery-ui.js"></script>
+    <script src="./js/functions.js"></script>
+    <script src="./js/bodymovin.js"></script>
+	<title>BodyMovinGame</title>
 </head>
 <body>
-  	<app-root></app-root>
-<script type="text/javascript" src="inline.bundle.js"></script><script type="text/javascript" src="polyfills.bundle.js"></script><script type="text/javascript" src="styles.bundle.js"></script><script type="text/javascript" src="vendor.bundle.js"></script><script type="text/javascript" src="main.bundle.js"></script></body>
+    <div class="container">
+        <div id="fake-eggs"></div>
+        <div id="scores">
+            <div class="scores-container">
+                <p id='tokens'>Tokens: <span class="amount">0</span></p>
+                <p id='points'>Points: <span class="amount">0</span></p>
+            </div>
+        </div>
+        <div id="winning-screen" class='absolute'></div>
+        <div class="game-container">
+            <div id="hammer"></div>
+            <div id='tokens-container' class='flex-v h-100'>
+                <div class="flex-h">
+                    <div id='token-ui' class='flex-v'>
+                        <div id="tokens-amount">1</div>
+                        <div id='bar'>
+                            <img class='draggable' src="./assets/drag_button.png" alt="">    
+                        </div>
+                    </div>
+                </div>
+                <div id="play-button"></div>
+            </div>
+            <div id="eggs-container" class='flex-v'>
+                <div class="flex-h">
+                    <div class='egg' id="egg_1">
+                    </div>
+                    <div class='egg' id="egg_2">
+                    </div>
+                    <div class='egg' id="egg_3">
+                    </div>  
+                </div>      
+            </div>
+            <div id="rex"></div>
+            <div id="points-container">
+                <div class="flex-v">
+                    <div class="flex-h space-around">
+                        <div class="points">
+                            <p id='points-won'>0</p>
+                        </div>
+                        <div class="points">
+                            <p id='tokens-played'>0</p>
+                        </div>
+                    </div>
+                    <div id="again-button"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            type: "POST", 
+            url: "http://everesttest.snowfly.com/gameapi/v1/getStartInfo", 
+            data: { gameId: _gameID },
+            success: function( data ) {
+               _userData =  data;
+                $('#points > .amount').text(_userData.pointBalance)
+                $('#tokens > .amount').text(_userData.tokenBalance)
+            }
+        });
+
+        $('.container, #fake-eggs, #points-container, #scores').height($(document).width() * 400 / 560)
+
+        var playButton = {
+            container: document.getElementById("play-button"),
+            renderer: 'svg',
+            loop: false,
+            autoplay: false,
+            rendererSettings: {
+                progressiveLoad:false
+            },
+
+            path: '../json/play_button.json'
+        }
+        bodymovin.loadAnimation(playButton)
+
+        var againButton = {
+            container: document.getElementById("again-button"),
+            renderer: 'svg',
+            loop: false,
+            autoplay: false,
+            rendererSettings: {
+                progressiveLoad:false
+            },
+
+            path: '../json/start_over.json'
+        }
+        bodymovin.loadAnimation(againButton)
+
+        $('.draggable').draggable({ 
+            axis: "x",
+            containment: "#bar",
+            start: function() {
+                updateDraggableValue($('.draggable').css('left'))
+            },
+            drag: function() {
+                updateDraggableValue($('.draggable').css('left'))
+            },
+            stop: function() {
+                updateDraggableValue($('.draggable').css('left'))
+            }
+        });
+
+        $('svg').ready(function(){
+            setTokenSelector()
+        })   
+
+        $(document).mousemove(function(e){
+            $mouseX = e.pageX;
+            $mouseY = e.pageY;    
+        });
+
+        $('#play-button').click(function(){
+            if(!isPlayClicked){
+                isPlayClicked = true
+                let tokens = parseInt($('#tokens-amount').text())
+                $.ajax({
+                    type: "POST", 
+                    url: "http://everesttest.snowfly.com/gameapi/v1/playGame", 
+                    data: { tokens: tokens, gameId: _gameID },
+                    success: function( data ) {
+                        __tokensResponse = data;
+                        $('#points-won').text(__tokensResponse.totalPoints)
+                        $('#tokens-played').text(tokens)
+                        setScene(__tokensResponse.playId, tokens)
+                    }
+                });                
+            }
+
+        })
+
+        $('#again-button').click(function(){
+            window.location.reload()
+        })
+
+        function updateDraggableValue(val){
+            let value = parseInt(val)
+            let newValue
+            if(value <= 92){
+                newVal = value * 10 / 92 }
+            if(value > 92 && value <= 204){
+                newVal = ((value - 92) * (50 * 1.5) / 204) + 10 }
+            if(value > 204){
+                newVal = ((value - 204) * (250 + 242) / 344) + 50 }
+            $('#tokens-amount').text(parseInt(newVal))
+        }
+    })
+</script>
 </html>
