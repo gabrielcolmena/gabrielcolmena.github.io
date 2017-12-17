@@ -1,104 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/styles.css">
-    <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
-    <script src="./js/SnowflyGameApi.js"></script>
-    <script src="./js/jquery-ui.js"></script>
-    <script src="./js/functions.js"></script>
-    <script src="./js/bodymovin.js"></script>
-	<title>BodyMovinGame</title>
+  	<meta charset="utf-8">
+  	<title>My Reputation</title>
+  	<base href="/">
+	<link href="https://fonts.googleapis.com/css?family=Mukta:300,400,500" rel="stylesheet">
+	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="icon" type="image/x-icon" href="favicon.ico">
+  	<script src="./assets/nicEdit.js"></script>
 </head>
 <body>
-
-    <audio class='disp-none sound' id='soundtrack' src="./assets/sounds/soundtrack.mp3" controls="false"></audio>
-    <audio class='disp-none sound' id='break' src="./assets/sounds/break-free.mp3" controls="false"></audio>
-    <audio class='disp-none sound' id='hit' src="./assets/sounds/hit.mp3" controls="false"></audio>
-    <audio class='disp-none sound' id='prize' src="./assets/sounds/prize.mp3" controls="false"></audio>
-    <audio class='disp-none sound' id='whoosh' src="./assets/sounds/whoosh.mp3" controls="false"></audio>
-    <audio class='disp-none sound' id='crowd' src="./assets/sounds/crowd.mp3" controls="false"></audio>
-    
-    <div class="animated-points slow-transition">0</div>
-    <div class="container">
-        <div id="instruction">
-            <div class="instructions-image"></div>
-        </div>
-        <div id="fake-eggs"></div>
-        <div id="decoration-1" class='decoration'></div>
-        <div id="decoration-2" class='decoration'></div>
-        <div class="init-screen flex-v f-end">
-            <div id="start-button"></div>
-        </div>
-        <div id="scores" class='flex-h space-between'>
-            <div>
-                <div class="scores-container">
-                    <p id='tokens'>Tokens: <span class="amount">0</span></p>
-                    <p id='points'>Points: <span class="amount">0</span></p>
-                </div>
-            </div>
-            <div class='controls flex-v f-start'>
-                <div>
-                    <img src="./assets/sound_on.png" alt="Sound control" class='pointer sound-control'>
-                </div>
-                <div>
-                    <div class="about pointer"></div>
-                </div>
-            </div>
-        </div>
-        <div id="winning-screen" class='absolute'></div>
-        <div class="game-container">
-            <div id="hammer"></div>
-            <div id='tokens-container' class='flex-v h-100'>
-                <div class="flex-h">
-                    <div id='token-ui' class='flex-v'>
-                        <div id="tokens-amount">1</div>
-                        <div id='bar'>
-                            <img class='draggable' src="./assets/drag_button.png" alt="">    
-                        </div>
-                        <div class="eggs-inicator flex-h space-around">
-                            <div class="egg-indicator transition" data-distance="0px"></div>
-                            <div class="egg-indicator transition" data-distance="92px"></div>
-                            <div class="egg-indicator transition" data-distance="202px"></div>
-                            <div class="egg-indicator transition" data-distance="344px"></div>
-                        </div>
-                    </div>
-                </div>
-                <div id="play-button"></div>
-            </div>
-            <div id="eggs-container" class='flex-v'>
-                <div class="flex-h">
-                    <div class='egg' id="egg_1">
-                    </div>
-                    <div class='egg' id="egg_2">
-                    </div>
-                    <div class='egg' id="egg_3">
-                    </div>  
-                </div>      
-            </div>
-            <div id="rex"></div>
-            <div id="points-container" class='transition'>
-                <div class="flex-v">
-                    <div id="final-animation"></div>
-                    <div class="flex-h space-around">
-                        <div class="points">
-                            <p id='points-won'>0</p>
-                        </div>
-                        <div class="points">
-                            <p id='tokens-played'>0</p>
-                        </div>
-                    </div>
-                    <div id="again-button"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-<script>
-    $(document).ready(function(){
-        init()
-    })
-</script>
+	<script type="text/javascript">
+		bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+	</script>
+  	<app-root></app-root>
+<script type="text/javascript" src="inline.bundle.js"></script><script type="text/javascript" src="polyfills.bundle.js"></script><script type="text/javascript" src="styles.bundle.js"></script><script type="text/javascript" src="vendor.bundle.js"></script><script type="text/javascript" src="main.bundle.js"></script></body>
 </html>
