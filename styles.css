@@ -831,6 +831,11 @@ div#points-layer, div#tokens-layer, div#final-tokens-layer, div#final-points-lay
     color: #d58160;
  }
 
+ .hb {
+ 	margin: 12px;
+ 	font-size: 22px;
+ }
+
  button {
 	border-radius: 10px;
     background: #d5805f;
