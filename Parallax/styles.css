@@ -33,6 +33,14 @@ button {
 	background-color: rgba(12, 20, 109, 0.85);
 	color: white;
 	border-radius: 5px;
+	transition: 0.25s ease all 0s;
+	visibility: visible;
+	opacity: 1;
+}
+
+button.hidden {
+	visibility: hidden;
+	opacity: 0;
 }
 
 .canvas {
@@ -52,8 +60,7 @@ button {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	/*visibility: visible;*/
-	visibility: hidden;
+	visibility: visible;
 	opacity: 1;
 	text-align: center;
 	display: flex;
@@ -83,4 +90,5 @@ button {
 	width: 80%;
 	border: 1px solid rgba(0,0,0,.1);
 	margin: 5px;
+	display: none;
 }

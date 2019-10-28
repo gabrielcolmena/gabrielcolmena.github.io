@@ -4,6 +4,8 @@ var canvas = document.getElementById("canvas");
 var context = canvas.getContext("2d");
 
 var loadCounter = 0;
+var loaded = false;
+var loadingScreen = document.getElementById('loading')
 
 //Layers
 var background = new Image();
@@ -86,14 +88,26 @@ layers.forEach ((layer, index) => {
 	layer.image.onload = () => {
 		loadCounter ++;
 		if (loadCounter >= layers.length) {
+			hideLoading()
 			requestAnimationFrame(drawCanvas);
 		}
 	}
 	layer.image.src = layer.src
 });
 
+function hideLoading(){
+	loadingScreen.className += " hidden"
+}
+
 function drawCanvas() {
 	context.clearRect(0, 0, canvas.width, canvas.height);
+
+	var rotateX = (pointer.y * -0.15) + (motion.y * -1.2);
+	var rotateY = (pointer.x * 0.15) + (motion.x * 1.2);
+
+	var transformString = "rotateX("+ rotateX +"deg) rotateY("+ rotateY +"deg)";
+	canvas.style.transform = transformString
+
 	layers.forEach ((layer, index) => {
 
 		layer.position = getOffset(layer);
@@ -210,6 +224,7 @@ button.addEventListener('click', () => {
       DeviceMotionEvent.requestPermission()
         .then(permissionState => {
           if (permissionState === 'granted') {
+          	button.className = "hidden";
             window.addEventListener('deviceorientation', (e) => {
 				
 				if (!initialMotion.x && !initialMotion.y) {
