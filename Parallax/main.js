@@ -21,7 +21,7 @@ var layers = [
 	{
 		"image": background,
 		"src": "./img/layer_0.png",
-		"z_index": -2,
+		"z_index": -1.5,
 		"position": {x: 0, y:0},
 		"blend": null,
 		"opacity": 1
@@ -101,6 +101,8 @@ function hideLoading(){
 
 function drawCanvas() {
 	context.clearRect(0, 0, canvas.width, canvas.height);
+
+	TWEEN.update()
 
 	var rotateX = (pointer.y * -0.15) + (motion.y * -1.2);
 	var rotateY = (pointer.x * 0.15) + (motion.x * 1.2);
@@ -203,8 +205,8 @@ window.addEventListener("mouseup", () => {
 
 function endGesture() {
 	moving = false
-	pointer.x = 0
-	pointer.y = 0
+	TWEEN.removeAll()
+	var pointerTween = new TWEEN.Tween(pointer).to({x: 0, y: 0}, 300).easing(TWEEN.Easing.Back.Out).start()
 }
 
 var initialMotion = {
