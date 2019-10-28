@@ -165,6 +165,9 @@ function pointerMove(e) {
 
 		pointer.x = currentX - initialPointer.x
 		pointer.y = currentY - initialPointer.y
+
+		var p = document.getElementById('touch-values')
+		p.innerHTML = "Mouse-touch: x: "+ pointer.x +", y: " + pointer.y
 	}
 }
 
@@ -203,44 +206,55 @@ var motion = {
 var button = document.getElementById("permission-button")
 
 button.addEventListener('click', () => {
-	DeviceMotionEvent.requestPermission()
-	.then(response => {
-	  if (response == 'granted') {
-	  	alert("Permission granted!")
-	    
-	    window.addEventListener('devicemotion', (e) => {
-			if (!initialMotion.x && !initialMotion.y) {
-				initialMotion.x = e.beta;
-				initialMotion.y = e.gamma;
-			}
+    if (typeof DeviceMotionEvent.requestPermission === 'function') {
+      DeviceMotionEvent.requestPermission()
+        .then(permissionState => {
+          if (permissionState === 'granted') {
+            window.addEventListener('deviceorientation', (e) => {
+				
+				if (!initialMotion.x && !initialMotion.y) {
+					initialMotion.x = e.beta;
+					initialMotion.y = e.gamma;
+				}
 
-			if (window.orientation == 0) {
-			
-				//portrait	
-				motion.x = event.gamma - initialMotion.y;
-				motion.y = event.beta - initialMotion.x;
-			
-			} else if (window.orientation == 90) {
-			
-				//landscape left
-				motion.x = event.beta - initialMotion.x;
-				motion.y = -event.gamma + initialMotion.y;
-			
-			} else if (window.orientation == -90) {
+				if (window.orientation == 0) {
 				
-				//landspace right
-				motion.x = event.beta + initialMotion.x;
-				motion.y = -event.gamma - initialMotion.y;
+					//portrait	
+					motion.x = event.gamma - initialMotion.y;
+					motion.y = event.beta - initialMotion.x;
+				
+				} else if (window.orientation == 90) {
+				
+					//landscape left
+					motion.x = event.beta - initialMotion.x;
+					motion.y = -event.gamma + initialMotion.y;
+				
+				} else if (window.orientation == -90) {
+					
+					//landspace right
+					motion.x = event.beta + initialMotion.x;
+					motion.y = -event.gamma - initialMotion.y;
 
-			} else {
-				
-				//upside down
-				motion.x = -event.gamma + initialMotion.y;
-				motion.y = -event.beta + initialMotion.x;
-				
-			}
-	    })
-	  }
-	})
-	.catch(console.error)
+				} else {
+					
+					//upside down
+					motion.x = -event.gamma + initialMotion.y;
+					motion.y = -event.beta + initialMotion.x;
+
+				}
+
+				var p = document.getElementById('gyro-values')
+				p.innerHTML = "Gyroscope: x: "+ motion.x +", y: " + motion.y
+            });
+          }
+        })
+        .catch(console.error);
+    } else {
+      // handle regular non iOS 13+ devices
+    }
+});
+
+window.addEventListener('orientationchange', () => {
+	initialMotion.x = 0
+	initialMotion.y = 0
 })

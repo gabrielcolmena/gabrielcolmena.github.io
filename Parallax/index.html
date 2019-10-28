@@ -8,8 +8,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 </head>
 <body>
+	<div class="debugger">
+		<div class='gyroscope'>
+			<p id='gyro-values'>Gyroscope values: x: 0, y: 0</p>
+		</div>
+		<div class='touch'>
+			<p id='touch-values'>Mouse-touch values: x: 0, y: 0</p>
+		</div>
+	</div>
 	<div class="image-container">
 		<canvas width="900" height="1200" id="canvas" class="canvas"></canvas>
+		<div class="loading-screen" id="loading"></div>
 	</div>		
 	<div class='button-container'>
 		<button id='permission-button'>Enable device motion sensor</button>
