@@ -25,11 +25,11 @@ body, html {
 }
 
 button {
-	margin: 20px;
-	width: 240px;
-	height: 40px;
+	margin: 0px 20px 20px 20px;
+	width: 180px;
+	height: 30px;
 	border: 0px;
-	background-color: rgba(0,0,0, 0.4);
+	background-color: rgba(12, 20, 109, 0.85);
 	color: white;
 	border-radius: 5px;
 }
@@ -40,8 +40,4 @@ button {
 	max-height: 100%;
 	display: block;
 	margin: auto;
-}
-
-button {
-
 }

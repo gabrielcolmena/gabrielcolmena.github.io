@@ -85,8 +85,6 @@ var layers = [
 layers.forEach ((layer, index) => {
 	layer.image.onload = () => {
 		loadCounter ++;
-		console.log(loadCounter)
-		console.log(layers.length)
 		if (loadCounter >= layers.length) {
 			requestAnimationFrame(drawCanvas);
 		}
@@ -192,9 +190,6 @@ function endGesture() {
 	pointer.y = 0
 }
 
-
-
-
 var initialMotion = {
 	x: null,
 	y: null
@@ -206,10 +201,13 @@ var motion = {
 }
 
 var button = document.getElementById("permission-button")
+
 button.addEventListener('click', () => {
 	DeviceMotionEvent.requestPermission()
 	.then(response => {
 	  if (response == 'granted') {
+	  	alert("Permission granted!")
+	    
 	    window.addEventListener('devicemotion', (e) => {
 			if (!initialMotion.x && !initialMotion.y) {
 				initialMotion.x = e.beta;
@@ -217,15 +215,29 @@ button.addEventListener('click', () => {
 			}
 
 			if (window.orientation == 0) {
+			
 				//portrait	
+				motion.x = event.gamma - initialMotion.y;
+				motion.y = event.beta - initialMotion.x;
+			
 			} else if (window.orientation == 90) {
+			
 				//landscape left
 				motion.x = event.beta - initialMotion.x;
-				motion.y = event.gamma + initialMotion.y;
+				motion.y = -event.gamma + initialMotion.y;
+			
 			} else if (window.orientation == -90) {
+				
 				//landspace right
+				motion.x = event.beta + initialMotion.x;
+				motion.y = -event.gamma - initialMotion.y;
+
 			} else {
+				
 				//upside down
+				motion.x = -event.gamma + initialMotion.y;
+				motion.y = -event.beta + initialMotion.x;
+				
 			}
 	    })
 	  }
