@@ -2,18 +2,85 @@
 <html lang="en">
 <head>
     <link rel="preconnect" href="https://fonts.gstatic.com"> 
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta property="og:site_name" content="Astero Games"/>
+    <meta property="og:title" content="Astero Games"/>
+    <meta property="og:type" content="Game development studio"/>
+    <meta property="og:url" content="astero.games"/>
+    <meta property="og:description" content="Venezuelan based indie game development studio"/>
+    <meta property="og:image" content="./assets/astero.logo.jpg"/>
+    
+    <link rel="icon" href="./assets/logo.png" type="image/png" sizes="20x20">
     <title>Astero Games</title>
 </head>
 <body class='full'>
-    <div class="flex-h full">
-        <div class="flex-v">
-            This webpage remains under development...
+    <div class="flex-v main-container space-between full">
+        <div class='top'>
+            <p class='title orange'>Astero Games 🚀</p>
+            <div class="flex-v description shadow">
+                <p class='fw-4 f-18'>- Who we are?</p>
+                <p class='fw-3 f-14'><br>Astero Games is a Venezuelan based indie game development studio,<br><br>Currently working on a <b>top-down action RPG</b></p>
+            </div>
+            <div class="flex-v description shadow">
+                <p class='fw-4 f-18'>- Are we hiring?</p>
+                <p class='fw-3 f-14'><br>Currently looking for a <b>
+                    <a target="_blank" class='orange' href="https://forms.gle/XghJfXi7rJyHgkHh8">pixel artist/animator</a>
+                </b></p>
+            </div>
+        </div>
+        <div class='bottom'>
+            <div class="flex-v description shadow">
+                <p class='fw-4 f-18'>- Contact actions:</p>
+                <div class='flex-h f-start media-container'>
+                    <a target="_blank" href="mailto:gabriel@astero.games"> 
+                        <img src="./assets/mail.png" alt="email"> 
+                    </a> 
+                    <a target="_blank" href="https://twitter.com/asterogames"> 
+                        <img src="./assets/twitter.png" alt="email"> 
+                    </a> 
+                    <a target="_blank" href="https://instagram.com/asterogames"> 
+                        <img src="./assets/instagram.png" alt="email"> 
+                    </a> 
+                </div>
+            </div>
         </div>
     </div>
 </body>
+<style>
+
+    .orange {
+        color: rgb(255, 119, 0);
+    }
+
+    .media-container > * {
+        margin: 20px 15px 0px;
+    }
+
+    .main-container > div > div {
+        background-color: white;
+        margin: 15px auto;
+        width: 75vw;
+    }
+
+    .title {
+        font-size: 20px;
+        margin: 15px auto;
+        width: 75vw;
+    }
+    
+    .description {
+        border-radius: 4px;
+        padding: 20px;
+    }
+    
+    .bottom {
+        margin-bottom: 20px;
+    }
+
+</style>
 </html>

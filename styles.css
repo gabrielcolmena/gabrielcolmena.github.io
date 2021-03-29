@@ -5,7 +5,7 @@
 
 body {
   overflow: hidden;
-  font-family: "Lato";
+  font-family: 'Rubik', sans-serif;
   background-color: rgba(0,0,0,0.05);
   background: #fcfcfc; }
 
@@ -40,11 +40,14 @@ body {
 .capitalize {
   text-transform: capitalize; }
 
-.fw-1 {
-  font-weight: 100; }
+.fw-3 {
+  font-weight: 300; }
 
 .fw-4 {
   font-weight: 400; }
+
+.fw-5 {
+  font-weight: 500; }
 
 .no-margin {
   margin: 0px !important; }
@@ -712,16 +715,6 @@ canvas{
   position: absolute;
 }
 
-* {
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
-}
-
 #post-points-layer,
 #post-tokens-layer {
   width: 100%;
@@ -820,28 +813,3 @@ div#points-layer, div#tokens-layer, div#final-tokens-layer, div#final-points-lay
 .light {
 	font-weight: 400;
 }
- * {
- 	font-family: 'Lato';
- }
-
- .title {
- 	width: 90%;
- 	font-size: 40px;
-    margin: 30px auto;
-    color: #d58160;
- }
-
- .hb {
- 	margin: 30px;
- 	font-size: 30px;
- }
-
- button {
-	border-radius: 10px;
-    background: #d5805f;
-    border: none;
-    margin: 30px 0 0 0;
-    font-size: 30px;
-    color: white;
-    padding: 20px 40px;
- }
