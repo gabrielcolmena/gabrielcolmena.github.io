@@ -812,3 +812,36 @@ div#points-layer, div#tokens-layer, div#final-tokens-layer, div#final-points-lay
 .light {
 	font-weight: 400;
 }
+
+
+/* custom */
+
+
+.orange {
+  color: rgb(255, 119, 0);
+}
+
+.media-container > * {
+  margin: 20px 15px 0px;
+}
+
+.main-container > div > div {
+  background-color: white;
+  margin: 15px auto;
+  width: 75vw;
+}
+
+.title {
+  font-size: 20px;
+  margin: 15px auto;
+  width: 75vw;
+}
+
+.description {
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.bottom {
+  margin-bottom: 30px;
+}

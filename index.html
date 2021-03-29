@@ -51,36 +51,27 @@
         </div>
     </div>
 </body>
-<style>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
 
-    .orange {
-        color: rgb(255, 119, 0);
-    }
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
 
-    .media-container > * {
-        margin: 20px 15px 0px;
-    }
-
-    .main-container > div > div {
-        background-color: white;
-        margin: 15px auto;
-        width: 75vw;
-    }
-
-    .title {
-        font-size: 20px;
-        margin: 15px auto;
-        width: 75vw;
-    }
-    
-    .description {
-        border-radius: 4px;
-        padding: 20px;
-    }
-    
-    .bottom {
-        margin-bottom: 30px;
-    }
-
-</style>
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyCPz2-Ea444n7WIpB4WlyHZ9JDpOJsiiw4",
+    authDomain: "astero-games.firebaseapp.com",
+    projectId: "astero-games",
+    storageBucket: "astero-games.appspot.com",
+    messagingSenderId: "8017498380",
+    appId: "1:8017498380:web:188c450ed10e5fe015b929",
+    measurementId: "G-THQJMRN0GD"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
 </html>
