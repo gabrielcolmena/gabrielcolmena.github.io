@@ -2,36 +2,40 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Astero Games</title>
-    <link>https://www.astero.games/</link>
+    <link>https://asterogames.com/</link>
     <description>Recent content on Astero Games</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Wed, 31 Mar 2021 01:04:20 -0400</lastBuildDate><atom:link href="https://www.astero.games/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <copyright>ASTEROGAMES</copyright>
+    <lastBuildDate>Wed, 31 Mar 2021 01:04:20 -0400</lastBuildDate><atom:link href="https://asterogames.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>What is all this about?</title>
-      <link>https://www.astero.games/post/first_post/</link>
+      <link>https://asterogames.com/post/first_post/</link>
       <pubDate>Wed, 31 Mar 2021 01:04:20 -0400</pubDate>
       
-      <guid>https://www.astero.games/post/first_post/</guid>
-      <description>Hello! First off thanks for looking around. This blog will be used to post:</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://www.astero.games/archives/</link>
-      <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.astero.games/archives/</guid>
-      <description></description>
+      <guid>https://asterogames.com/post/first_post/</guid>
+      <description>Hello! First off thanks for looking around. This blog will be used to post:
+ Game dev logs Unity tutorials Web dev tutorials (basics) Gameplay mechanics Game art postss  With most of the posts related to the first Astero Games comercial project, I hope you enjoy the content and if you have any comment don&amp;rsquo;t hesitate in contact me</description>
     </item>
     
     <item>
       <title>About</title>
-      <link>https://www.astero.games/about/</link>
+      <link>https://asterogames.com/about/</link>
       <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://www.astero.games/about/</guid>
-      <description>Astero Games is an independent video games development studio based on Venezuela 📍</description>
+      <guid>https://asterogames.com/about/</guid>
+      <description>Astero Games is an independent video games development studio based on Venezuela 📍
+Working on his first comercial project, which development proccess will be posted regularly on this website as blogs entries, check them out in the posts section
+And thanks for taking your time to look around 💚</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>https://asterogames.com/contact/</link>
+      <pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://asterogames.com/contact/</guid>
+      <description>Hey! contact us&amp;hellip;</description>
     </item>
     
   </channel>
