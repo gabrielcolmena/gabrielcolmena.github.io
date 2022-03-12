@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Astero Games</title>
-    <link>https://asterogames.com/tags/</link>
+    <link>https://astero.games/tags/</link>
     <description>Recent content in Tags on Astero Games</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>ASTEROGAMES</copyright><atom:link href="https://asterogames.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>ASTEROGAMES</copyright><atom:link href="https://astero.games/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>index</title>
-      <link>https://asterogames.com/tags/index/</link>
+      <link>https://astero.games/tags/index/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://asterogames.com/tags/index/</guid>
+      <guid>https://astero.games/tags/index/</guid>
       <description></description>
     </item>
     

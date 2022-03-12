@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on Astero Games</title>
-    <link>https://asterogames.com/blog/</link>
+    <link>https://astero.games/blog/</link>
     <description>Recent content in Blog on Astero Games</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>ASTEROGAMES</copyright><atom:link href="https://asterogames.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>ASTEROGAMES</copyright><atom:link href="https://astero.games/blog/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
