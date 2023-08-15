@@ -147,7 +147,20 @@ a {color: color(srgb 0.8834 0.8834 0.955);}
     color: white;
     cursor: pointer;
 }
+.wishlist-button svg {
+    margin: auto 10px;
+    width: 25px;
+    height: 25px;
+}
 
+.wishlist-button {
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 25px auto 40px;
+    cursor: pointer;
+    max-width: 340px;
+    box-shadow: rgba(0,0,0,0.3) 0px 0px 20px;
+}
 
 /* links page */
 .link-button {

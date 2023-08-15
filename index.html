@@ -149,11 +149,18 @@
                 <p>Creating with heart</p>
             </div>
 
-            <p class=''>Astero Games is a colombian based 📍 independent video games development studio working on his first comercial title <br> 
+            <p class=''>Astero Games is a colombian based 📍 independent video games development studio working on: <br> 
                 <a target="_blank" href="http://store.steampowered.com/app/2445060/Hirocato__The_Delivery_Hero/">
-                    <p>"Hirocato - The Delivery Hero"</p>
+                    <p>Hirocato - The Delivery Hero</p>
                     <div class="capsule">
                         <img src="https://cdn.akamai.steamstatic.com/steam/apps/2445060/header.jpg?t=1691984300" alt="Hirocate Steam Capsult">
+                        <div class="wishlist-button flex-h" data-button="wishlist">
+                            <p>Wishlist now </p>
+                            <div class='flex-h'>
+                                <p>- on Steam</p>
+                                <i class="fa-brands fa-steam"></i> 
+                            </div>
+                        </div>
                     </div>
                 </a>
             </p>
@@ -167,13 +174,21 @@
                         <i class="fa-brands fa-tiktok"></i> 
                     </a>
                     
-                    <a class='social-icon' target="_blank" href="https://store.steampowered.com/app/2445060/Hirocato__The_Delivery_Hero/">
-                        <i class="fa-brands fa-steam"></i> 
-                    </a>
-                    
                 </div>
         </div>
     </main>
+    <script>
+        const buttons = document.querySelectorAll('.wishlist-button'); 
+        buttons.forEach(button => {
+          button.addEventListener('click', function() {
+            const buttonName = this.getAttribute('data-button'); 
+            gtag('event', 'button_click', {
+              'event_category': 'button_clicks',
+              'event_label': buttonName
+            });
+          });
+        });
+      </script>
 
             </div>
 
