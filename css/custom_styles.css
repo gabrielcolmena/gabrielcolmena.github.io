@@ -139,6 +139,10 @@ a {color: color(srgb 0.8834 0.8834 0.955);}
     max-height: 80%;
 }
 
+.youtubegameplay {
+    width: 100%;
+}
+
 .close {
     position: absolute;
     top: 15px;
