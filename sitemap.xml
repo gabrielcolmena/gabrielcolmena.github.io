@@ -2,10 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://astero.games/</loc>
+    <loc>https://astero.games/post/</loc>
     <lastmod>2021-03-31T01:04:20-04:00</lastmod>
   </url><url>
-    <loc>https://astero.games/post/</loc>
+    <loc>https://astero.games/</loc>
     <lastmod>2021-03-31T01:04:20-04:00</lastmod>
   </url><url>
     <loc>https://astero.games/post/first_post/</loc>
@@ -19,10 +19,9 @@
     <loc>https://astero.games/links/</loc>
     <priority>0</priority>
   </url><url>
-    <loc>https://astero.games/presskit/</loc>
-    <priority>0</priority>
-  </url><url>
     <loc>https://astero.games/steam/</loc>
     <priority>0</priority>
+  </url><url>
+    <loc>https://astero.games/presskit/</loc>
   </url>
 </urlset>
