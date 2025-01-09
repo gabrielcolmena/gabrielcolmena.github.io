@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>Catalogo</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 20px;
+            background-color: #f8f8f8;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            max-width: 920px;
+            margin: 0 auto;
+        }
+        .item {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 30px;
+            box-shadow: 0 2px 30px rgba(0,0,0,0.05);
+        }
+        .item h2 {
+            margin: 30px 0 10px 0;
+        }
+        .images {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .images img {
+            width: 100%;
+            border-radius: 5px;
+            max-height: 450px;
+            object-fit: contain;
+        }
+        .description {
+            margin-top: 10px;
+            font-weight: 400;
+        }
+        .price {
+            color: green;
+            font-size: 1.2em;
+            margin-top: 30px;
+            font-weight: 700;
+        }
+        a {
+            padding: 10px;
+            background-color: #c8dce1;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            color: inherit;
+            font-weight: 700;
+            display: inline-block;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Catalog</h1>
+    <div class="container">
+        Las cosas ofrecidas en este catálogo tienen entre 2 a 3 años de uso, y si algún objeto posee algún imperfecto este será mencionado en su descripción
+        <div class="item">
+            <div class="images">
+                <img src="./beed2_1.jpeg" alt="Beed Image 1">
+                <img src="./beed2_2.jpeg" alt="Beed Image 2">
+                <img src="./beed2_3.jpeg" alt="Beed Image 3">
+                <img src="./beed2_4.jpeg" alt="Beed Image 4">
+            </div>
+            <h2>Cama + Colchón</h2>
+            <div class="description">Description of Beed</div>
+            <div class="price">$ ???</div>
+        </div>
+
+        <div class="item">
+            <div class="images">
+                <img src="./brown_chair_1.jpeg" alt="Brown Chair Image 1">
+                <img src="./brown_chair_2.jpeg" alt="Brown Chair Image 2">
+                <img src="./brown_chair_3.jpeg" alt="Brown Chair Image 3">
+            </div>
+            <h2>Silla Brooklyn (3 disponibles) (Tugó)</h2>
+            <div class="description"></div>
+            <div class="price">$150.000 (cada una)</div>
+        </div>
+
+        <div class="item">
+            <div class="images">
+                <img src="./casio_1.jpeg" alt="Casio Image 1">
+                <img src="./casio_2.jpeg" alt="Casio Image 2">
+                <img src="./casio_3.jpeg" alt="Casio Image 3">
+                <img src="./casio_4.jpeg" alt="Casio Image 4">
+            </div>
+            <h2>Teclado Casio</h2>
+            <div class="description">
+                <ul>
+                    <li>Incluye cargador</li>
+                    <li>Incluye base</li>
+                    <li>Incluye estuche semi-duro</li>
+                </ul>
+            </div>
+            <div class="price">$1.000.000</div>
+        </div>
+
+        <div class="item">
+            <div class="images">
+                <img src="./chair_1.jpeg" alt="Chair Image 1">
+                <img src="./chair_2.jpeg" alt="Chair Image 2">
+            </div>
+            <h2>Silla de escritorio</h2>
+            <div class="description">
+                <ul>
+                    <li>Reclina 3 niveles</li>
+                    <li>Los posa-brazos rotan y suben/bajan</li>
+                    <li>El asiento se mueve hacia adelante para mejor postura</li>
+                    <li>Tiene soporte lumbar</li>
+                    <li>Al ser de tela no da calor</li>
+                    <li>Tiene ruedas de silicón, desliza muy bien</li>
+                </ul>
+            </div>
+            <div class="price">$600.000</div>
+        </div>
+
+        <div class="item">
+            <div class="images">
+                <img src="./desk_1.jpeg" alt="Desk Image 1">
+                <img src="./desk_2.jpeg" alt="Desk Image 2">
+                <img src="./desk_5.jpeg" alt="Desk Image 3">
+                <img src="./desk_7.jpeg" alt="Desk Image 4">
+            </div>
+            <h2>Escritorio en L (Tugó)</h2>
+            <div class="description"></div>
+            <div class="price">$430.000</div>
+        </div>
+
+        <div class="item">
+            <div class="images">
+                <img src="./drawer_1.jpeg" alt="Drawer Image 1">
+                <img src="./drawer_2.jpeg" alt="Drawer Image 2">
+                <img src="./drawer_3.jpeg" alt="Drawer Image 3">
+                <img src="./drawer_4.jpeg" alt="Drawer Image 4">
+            </div>
+            <h2>Gavetero / Cómoda (Homecenter)</h2>
+            <div class="description">
+                <ul>
+                    <li>6 gavetas</li>
+                </ul>
+            </div>
+            <div class="price">$480.000</div>
+        </div>
+
+        <div class="item">
+            <div class="images">
+                <img src="./fan_1.jpeg" alt="Fan Image 1">
+                <img src="./fan_2.jpeg" alt="Fan Image 2">
+            </div>
+            <h2>Ventilador Oster</h2>
+            <div class="description">
+                <ul>
+                    <li>3 Velocidades</li>
+                    <li>Temporizador para apagado automatico (1/2/4/ u 8h)</li>
+                    <li>Modo Giratorio y estático</li>
+                    <li>Control remoto</li>
+                </ul>
+            </div>
+            <div class="price">$100.000</div>
+        </div>
+
+        <div class="item">
+            <div class="images">
+                <img src="./fan2_1.jpeg" alt="Fan 2 Image 1">
+                <img src="./fan2_2.jpeg" alt="Fan 2 Image 2">
+                <img src="./fan2_3.jpeg" alt="Fan 2 Image 3">
+            </div>
+            <h2>Ventilador Altezza</h2>
+            <div class="description">
+                <ul>
+                    <li>3 Volicidades</li>
+                    <li>Modo Giratorio y estático</li>
+                </ul>
+            </div>
+            <div class="price">$80.000</div>
+        </div>
+
+        <div class="item">
+            <div class="images">
+                <img src="./fridge_1.jpeg" alt="Fridge Image 1">
+                <img src="./fridge_2.jpeg" alt="Fridge Image 2">
+            </div>
+            <h2>Nevera Mabe</h2>
+            <div class="description"></div>
+            <div class="price">$1.400.000</div>
+        </div>
+
+        <div class="item">
+            <div class="images">
+                <img src="./monitor_1.jpeg" alt="Monitor Image 1">
+                <img src="./monitor_2.jpeg" alt="Monitor Image 2">
+                <img src="./monitor_3.jpeg" alt="Monitor Image 3">
+            </div>
+            <h2>Monitor Ultrawide™ LG 25''</h2>
+            <div class="description">
+                <a href="https://www.lg.com/co/monitores/ultrawide/25um58/">Link a LG</a>
+                <a href="https://digitalstore.com.co/product/monitor-lg-25p-25um58-g-ultrawide-75hz-1ms-fhd-ips-medellin-colombia/?srsltid=AfmBOorIUpx9JUv-HVX84ble1qc4BCRrefrweaOMrgIfYekaBErE4sSx">Link a tienda</a>
+                <br>
+                Monitor Ultrawide™ 25" 21:9 FHD
+                <ul>
+                    <li>Botón de encendido dañado (pero se apaga automático cuando no tiene señal)</li>
+                    <li>Incluye base</li>
+                    <li>Si desea el brazo que lo sostiene tiene un costo de $100.000 adicionales</li>
+                </ul>
+            </div>
+            <div class="price">$450.000</div>
+        </div>
+
+        <div class="item">
+            <div class="images">
+                <img src="./nightstand_1.jpeg" alt="Nightstand Image 1">
+                <img src="./nightstand_2.jpeg" alt="Nightstand Image 2">
+                <img src="./nightstand_3.jpeg" alt="Nightstand Image 3">
+            </div>
+            <h2>Mesa de noche (2) (Tugó)</h2>
+            <div class="description">Description of Nightstand</div>
+            <div class="price">$100.000</div>
+        </div>
+
+        <div class="item">
+            <div class="images">
+                <img src="./roborock_1.jpeg" alt="Roborock Image 1">
+                <img src="./roborock_2.jpeg" alt="Roborock Image 2">
+                <img src="./roborock_3.jpeg" alt="Roborock Image 3">
+            </div>
+            <h2>Roborock S6 Pure Robot Vacuum and Mop, Multi-Floor Mapping</h2>
+            <div class="description">
+                <a href="https://www.amazon.com/dp/B084Z5P2BX?ref=ppx_yo2ov_dt_b_fed_asin_title&th=1">Link a amazon</a>
+                <br>
+                <ul>
+                    <li>Navegación LiDAR de Precisión</li>
+                    <li>Suction de 2000Pa</li>
+                    <li>Aumento Automático de Alfombra</li>
+                    <li>Limpieza Selectiva de Habitaciones</li>
+                    <li>Mapeo de Múltiples Pisos</li>
+                    <li>Tanque de Agua Ajustable de 180ml</li>
+                    <li>Control Total desde la App</li>
+                    <li>Compatible con Alexa y Google Assistant</li>
+                </ul>
+            </div>
+            <div class="price">$800.000</div>
+        </div>
+
+        <div class="item">
+            <div class="images">
+                <img src="./standing_desk_1.jpeg" alt="Standing Desk Image 1">
+                <img src="./standing_desk_2.jpeg" alt="Standing Desk Image 2">
+                <img src="./standing_desk_3.jpeg" alt="Standing Desk Image 3">
+            </div>
+            <h2>Elevate Standing Desk (Arista)</h2>
+            <div class="description">
+                <a href="https://www.aristaint.com/en/desks/high-adjustable-table">Link a tienda</a>
+                <br>
+                Mesa ajustable en altura con ruedas y frenos, estructura metálica plateada y superficie de melamina blanco gris. Medidas 1.50 m x 0.60 m x 0.76 m / 1.09 m. (Capacidad máxima 3 personas).
+            </div>
+            <div class="price">$1.800.000</div>
+        </div>
+
+        <div class="item">
+            <div class="images">
+                <img src="./table_1.jpeg" alt="Table Image 1">
+                <img src="./table_2.jpeg" alt="Table Image 2">
+                <img src="./table_3.jpeg" alt="Table Image 3">
+                <img src="./table_4.jpeg" alt="Table Image 4">
+            </div>
+            <h2>Mesa de comedor (Tugó)</h2>
+            <div class="description"></div>
+            <div class="price">$700.000</div>
+        </div>
+
+        <div class="item">
+            <div class="images">
+                <img src="./washer_1.jpeg" alt="Washer Image 1">
+                <img src="./washer_2.jpeg" alt="Washer Image 2">
+                <img src="./washer_3.jpeg" alt="Washer Image 3">
+            </div>
+            <h2>Lavadora / Secadora (Home center)</h2>
+            <div class="description">
+                <a href="https://www.homecenter.com.co/homecenter-co/product/455630/lavadora-secadora-2-en-1-115-kg-air-wash-wd11m44733s/455630/">Link a homecenter</a>
+                <br>
+                <ul>
+                    <li>Dimensiones (AltoxAnchoxProfundidad): 85 x 60 x 65 cm</li>
+                    <li>Capacidad de lavado	11.5 kg</li>
+                    <li>Capacidad de secado	7 Kg</li>
+                    <li>Tipo de energía para secado: Eléctrica</li>
+                    <li>Tecnología: Inverter</li>
+                    <li>Función antiarrugas: No</li>
+                </ul>
+            </div>
+            <div class="price">$1.400.000</div>
+        </div>
+    </div>
+</body>
+</html>
