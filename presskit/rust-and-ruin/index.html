@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Rust &amp; Ruin — Presskit. A deck-builder roguelike by Astero Games.">
+  <meta name="keywords" content="Rust and Ruin, presskit, press kit, roguelike, deck builder, Astero Games">
+  <link rel="canonical" href="https://astero.games/presskit/rust-and-ruin/">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KJ67EHSQY8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KJ67EHSQY8');
+  </script>
+
+  <title>Rust &amp; Ruin — Presskit · Astero Games</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <meta property="og:title" content="Rust &amp; Ruin — Presskit">
+  <meta property="og:description" content="Press kit for Rust &amp; Ruin by Astero Games. A deck-builder roguelike in development.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── VARIABLES ──────────────────────────────────────── */
+    :root {
+      --bg:     #1a1a1a;
+      --bg2:    #222222;
+      --bg3:    #2a2a2a;
+      --orange: #E8621A;
+      --teal:   #4ECDC4;
+      --coral:  #E8845A;
+      --white:  #ffffff;
+      --muted:  #666666;
+      --border: #333333;
+      --font:   'Space Grotesk', system-ui, sans-serif;
+      --mono:   'Space Mono', monospace;
+      --max-w:  1100px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--white); font-family: var(--font); -webkit-font-smoothing: antialiased; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ── NAV ────────────────────────────────────────────── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(26,26,26,0.92);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav__inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 40px; max-width: var(--max-w); margin: 0 auto;
+    }
+    .nav__back {
+      font-family: var(--mono); font-size: 12px; color: var(--muted);
+      letter-spacing: 0.05em; transition: color 0.2s;
+    }
+    .nav__back::before { content: '← '; color: var(--orange); }
+    .nav__back:hover { color: var(--white); }
+    .nav__right { display: flex; gap: 12px; align-items: center; }
+    .nav__link {
+      font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--muted); transition: color 0.2s;
+    }
+    .nav__link:hover { color: var(--white); }
+    .nav__cta {
+      display: inline-flex; align-items: center;
+      background: none; color: var(--orange);
+      border: 1px solid rgba(232,98,26,0.4);
+      font-family: var(--mono); font-size: 10px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 10px 20px; border-radius: 2px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .nav__cta:hover { background: rgba(232,98,26,0.1); border-color: var(--orange); }
+
+    /* ── HERO ───────────────────────────────────────────── */
+    .pk-hero {
+      padding: 120px 40px 64px;
+      border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    .pk-hero::before {
+      content: ''; position: absolute; top: -150px; right: -150px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(232,98,26,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .pk-hero__inner {
+      max-width: var(--max-w); margin: 0 auto;
+      display: flex; flex-direction: column; gap: 16px;
+    }
+    .eyebrow {
+      font-family: var(--mono); font-size: 11px; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--orange);
+    }
+    h1 {
+      font-size: clamp(44px, 6vw, 80px); font-weight: 700;
+      line-height: 0.93; letter-spacing: -0.03em;
+    }
+    .status-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em;
+      text-transform: uppercase; padding: 5px 12px; border-radius: 2px;
+      border: 1px solid rgba(232,98,26,0.35); color: var(--orange); width: fit-content;
+    }
+    .status-badge::before { content: '●'; font-size: 8px; color: var(--orange); }
+    .pk-hero__meta {
+      display: flex; gap: 20px; align-items: center; flex-wrap: wrap;
+    }
+    .pk-hero__meta span {
+      font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.1em;
+    }
+    .pk-hero__meta .dot { color: var(--border); }
+
+    /* ── LAYOUT ─────────────────────────────────────────── */
+    .pk-wrap {
+      max-width: var(--max-w); margin: 0 auto;
+      padding: 0 40px 100px;
+      display: grid; grid-template-columns: 196px 1fr;
+      gap: 0; align-items: start;
+    }
+
+    /* ── SIDEBAR ────────────────────────────────────────── */
+    .pk-sidebar {
+      position: sticky; top: 68px;
+      padding: 48px 32px 48px 0;
+      border-right: 1px solid var(--border);
+    }
+    .pk-sidebar__game {
+      margin-bottom: 28px; padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .pk-sidebar__game-label {
+      font-family: var(--mono); font-size: 9px; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 4px;
+    }
+    .pk-sidebar__game-name { font-size: 14px; font-weight: 600; }
+    .pk-sidebar nav { display: flex; flex-direction: column; gap: 2px; }
+    .pk-sidebar a {
+      font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--muted);
+      padding: 7px 0; transition: color 0.2s;
+    }
+    .pk-sidebar a:hover { color: var(--white); }
+    .pk-sidebar a.active { color: var(--orange); }
+
+    /* ── MAIN ───────────────────────────────────────────── */
+    .pk-main {
+      padding: 48px 0 0 52px;
+      display: flex; flex-direction: column; gap: 64px;
+    }
+
+    /* ── SECTIONS ───────────────────────────────────────── */
+    .pk-section { scroll-margin-top: 100px; }
+    .section-label {
+      font-family: var(--mono); font-size: 10px; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--muted);
+      padding-bottom: 20px; border-bottom: 1px solid var(--border);
+      margin-bottom: 28px;
+    }
+
+    /* ── FACTSHEET ──────────────────────────────────────── */
+    .fact-table { display: flex; flex-direction: column; }
+    .fact-row {
+      display: grid; grid-template-columns: 150px 1fr;
+      gap: 20px; padding: 13px 0; border-bottom: 1px solid var(--border);
+      align-items: baseline;
+    }
+    .fact-row:first-child { border-top: 1px solid var(--border); }
+    .fact-key {
+      font-family: var(--mono); font-size: 9px; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--muted); padding-top: 2px;
+    }
+    .fact-val { font-size: 14px; color: #ccc; line-height: 1.6; }
+    .fact-val a { color: var(--teal); transition: color 0.2s; }
+    .fact-val a:hover { color: var(--white); }
+
+    /* ── BODY TEXT ──────────────────────────────────────── */
+    .body-text { font-size: 15px; line-height: 1.8; color: #aaa; }
+    .body-text p { margin-bottom: 14px; }
+    .body-text p:last-child { margin-bottom: 0; }
+    .body-text strong { color: var(--white); font-weight: 600; }
+
+    /* ── FEATURES ───────────────────────────────────────── */
+    .feature-list { display: flex; flex-direction: column; }
+    .feature-item {
+      display: flex; align-items: baseline; gap: 14px;
+      padding: 13px 0; border-bottom: 1px solid var(--border);
+      font-size: 15px; color: #ccc; line-height: 1.5;
+    }
+    .feature-item:first-child { border-top: 1px solid var(--border); }
+    .feature-item::before { content: '→'; color: var(--orange); font-size: 13px; flex-shrink: 0; }
+
+    /* ── SCREENSHOTS ────────────────────────────────────── */
+    .screenshots-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
+    }
+    .screenshot {
+      aspect-ratio: 16/9; border-radius: 3px; overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .screenshot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .screenshot--placeholder {
+      background: var(--bg2);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 8px;
+    }
+    .screenshot--placeholder span {
+      font-family: var(--mono); font-size: 9px; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--border);
+    }
+    .screenshot--placeholder::before {
+      content: ''; display: block; width: 20px; height: 20px;
+      border: 1px dashed var(--border); border-radius: 50%;
+    }
+    .screenshots-note {
+      margin-top: 16px; font-family: var(--mono); font-size: 11px;
+      color: var(--muted); letter-spacing: 0.08em;
+    }
+    .screenshots-note a { color: var(--orange); transition: color 0.2s; }
+    .screenshots-note a:hover { color: var(--white); }
+
+    /* ── TEAM CARDS ─────────────────────────────────────── */
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+    .team-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 4px; padding: 24px 20px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .team-avatar {
+      width: 46px; height: 46px; border-radius: 50%;
+      background: rgba(255,255,255,0.03);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono); font-size: 12px; font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .team-card h3 { font-size: 15px; font-weight: 600; }
+    .team-role { font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; }
+    .team-bio { font-size: 13px; color: #888; line-height: 1.65; }
+
+    /* ── CREDITS ────────────────────────────────────────── */
+    .credits-list { display: flex; flex-direction: column; }
+    .credit-row {
+      display: grid; grid-template-columns: 200px 1fr;
+      gap: 20px; padding: 13px 0; border-bottom: 1px solid var(--border);
+      align-items: baseline;
+    }
+    .credit-row:first-child { border-top: 1px solid var(--border); }
+    .credit-role {
+      font-family: var(--mono); font-size: 9px; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .credit-name { font-size: 14px; font-weight: 500; color: var(--white); }
+
+    /* ── CONTACT BOX ────────────────────────────────────── */
+    .contact-box {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-left: 3px solid var(--orange); border-radius: 0 4px 4px 0;
+      padding: 24px 28px; display: flex; flex-direction: column; gap: 8px;
+    }
+    .contact-box__label {
+      font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .contact-box__email {
+      font-size: 16px; font-weight: 500;
+    }
+    .contact-box__email a { color: var(--orange); transition: color 0.2s; }
+    .contact-box__email a:hover { color: var(--white); }
+    .contact-box__note { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* ── FOOTER ─────────────────────────────────────────── */
+    footer { border-top: 1px solid var(--border); padding: 32px 40px; }
+    .footer__inner {
+      max-width: var(--max-w); margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; flex-wrap: wrap;
+    }
+    .footer__copy { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+    .footer__copy .hi { color: var(--orange); }
+    .footer__back { font-family: var(--mono); font-size: 11px; color: var(--muted); transition: color 0.2s; }
+    .footer__back::before { content: '← '; color: var(--orange); }
+    .footer__back:hover { color: var(--white); }
+
+    /* ── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 860px) {
+      .pk-wrap { grid-template-columns: 1fr; padding: 0 24px 80px; }
+      .pk-sidebar {
+        position: static; padding: 32px 0 24px;
+        border-right: none; border-bottom: 1px solid var(--border);
+      }
+      .pk-sidebar nav { flex-direction: row; flex-wrap: wrap; gap: 4px 16px; }
+      .pk-main { padding: 40px 0 0; }
+      .nav__inner { padding: 16px 24px; }
+      .pk-hero { padding: 100px 24px 48px; }
+      footer { padding: 28px 24px; }
+    }
+    @media (max-width: 480px) {
+      h1 { font-size: 40px; }
+      .fact-row { grid-template-columns: 1fr; gap: 4px; }
+      .credit-row { grid-template-columns: 1fr; gap: 4px; }
+      .screenshots-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__back">astero.games</a>
+      <div class="nav__right">
+        <a href="/games/rust-and-ruin/" class="nav__link">Game page</a>
+        <a href="mailto:gabriel@astero.games?subject=Rust%20%26%20Ruin%20%E2%80%94%20Press%20inquiry"
+           class="nav__cta">Press inquiry</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="pk-hero">
+    <div class="pk-hero__inner">
+      <p class="eyebrow">Presskit · Astero Games</p>
+      <h1>Rust &amp; Ruin</h1>
+      <span class="status-badge">In Development</span>
+      <div class="pk-hero__meta">
+        <span>Roguelike · Deck-builder</span>
+        <span class="dot">·</span>
+        <span>PC · Steam</span>
+        <span class="dot">·</span>
+        <span>TBD</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <div class="pk-wrap">
+
+    <!-- Sidebar -->
+    <aside class="pk-sidebar">
+      <div class="pk-sidebar__game">
+        <p class="pk-sidebar__game-label">Game</p>
+        <p class="pk-sidebar__game-name">Rust &amp; Ruin</p>
+      </div>
+      <nav id="pk-nav">
+        <a href="#factsheet">Factsheet</a>
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#screenshots">Screenshots</a>
+        <a href="#team">Team</a>
+        <a href="#credits">Credits</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="pk-main">
+
+      <!-- FACTSHEET -->
+      <section class="pk-section" id="factsheet">
+        <p class="section-label">Factsheet</p>
+        <div class="fact-table">
+          <div class="fact-row">
+            <span class="fact-key">Game</span>
+            <span class="fact-val">Rust &amp; Ruin</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-key">Status</span>
+            <span class="fact-val">In Development</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-key">Expected Release</span>
+            <span class="fact-val">TBD</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-key">Developer</span>
+            <span class="fact-val">
+              <a href="https://astero.games" target="_blank" rel="noopener">Astero Games</a><br>
+              Gabriel Colmenares — Medellín, Colombia
+            </span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-key">Platform</span>
+            <span class="fact-val">PC · Steam</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-key">Genre</span>
+            <span class="fact-val">Roguelike · Deck-builder</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-key">Tags</span>
+            <span class="fact-val">Robot Combat · Turn-based · Strategy · Run-based · Customization</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-key">Engine</span>
+            <span class="fact-val">Unity</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-key">Team Size</span>
+            <span class="fact-val">3</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-key">Est. Price</span>
+            <span class="fact-val">$9.99</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-key">Press Contact</span>
+            <span class="fact-val">
+              <a href="mailto:gabriel@astero.games">gabriel@astero.games</a>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="pk-section" id="about">
+        <p class="section-label">About</p>
+        <div class="body-text">
+          <p>Rust &amp; Ruin is a deck-builder roguelike about the childhood fantasy of robot combat. You build your robot before the run — choosing its chassis, parts, and chips. That robot is yours. You care about it.</p>
+          <p>Then every battle, you're dealt a random hand of cards. Those cards are how you command your bot. You don't optimize a perfect deck. You react, adapt, and fight with what you've got. <strong>The robot you built is the constant — the cards are just the interface.</strong></p>
+          <p>Inspired by games like Medabots, with the roguelike replayability of Slay the Spire and Monster Train.</p>
+        </div>
+      </section>
+
+      <!-- FEATURES -->
+      <section class="pk-section" id="features">
+        <p class="section-label">Features</p>
+        <div class="feature-list">
+          <div class="feature-item">Build and name your own robot before each run</div>
+          <div class="feature-item">Random card draws every battle — adapt or lose</div>
+          <div class="feature-item">20+ chip types that modify your robot's abilities</div>
+          <div class="feature-item">Buy, sell, and upgrade chips at mid-run shops</div>
+          <div class="feature-item">Branched map with meaningful progression choices</div>
+          <div class="feature-item">Multiple robot chassis with distinct playstyles</div>
+          <div class="feature-item">Working demo with complete game loop available</div>
+        </div>
+      </section>
+
+      <!-- SCREENSHOTS -->
+      <section class="pk-section" id="screenshots">
+        <p class="section-label">Screenshots</p>
+        <div class="screenshots-grid">
+          <div class="screenshot screenshot--placeholder"><span>Coming soon</span></div>
+          <div class="screenshot screenshot--placeholder"><span>Coming soon</span></div>
+          <div class="screenshot screenshot--placeholder"><span>Coming soon</span></div>
+          <div class="screenshot screenshot--placeholder"><span>Coming soon</span></div>
+          <div class="screenshot screenshot--placeholder"><span>Coming soon</span></div>
+          <div class="screenshot screenshot--placeholder"><span>Coming soon</span></div>
+        </div>
+        <p class="screenshots-note">
+          Screenshots and key art available on request —
+          <a href="mailto:gabriel@astero.games?subject=Rust%20%26%20Ruin%20%E2%80%94%20Media%20request">gabriel@astero.games</a>
+        </p>
+      </section>
+
+      <!-- TEAM -->
+      <section class="pk-section" id="team">
+        <p class="section-label">Team</p>
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-avatar" style="border:1px solid #E8621A;color:#E8621A">GC</div>
+            <h3>Gabriel Colmenares</h3>
+            <p class="team-role" style="color:#E8621A">Lead Developer &amp; Designer</p>
+            <p class="team-bio">Mobile software engineer from Uber. Indie game developer. Full-time on Rust &amp; Ruin.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar" style="border:1px solid #4ECDC4;color:#4ECDC4">AB</div>
+            <h3>Arturo Berrios</h3>
+            <p class="team-role" style="color:#4ECDC4">Art Director</p>
+            <p class="team-bio">Studied video game concept art in Madrid. Defining the visual identity and world of Rust &amp; Ruin.</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar" style="border:1px solid #E8845A;color:#E8845A">CM</div>
+            <h3>Cristofer Moreno</h3>
+            <p class="team-role" style="color:#E8845A">Composer &amp; Sound Designer</p>
+            <p class="team-bio">Worked on audio and sound design for <em style="font-style:italic;color:#ccc">God of War: Sons of Sparta</em>.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CREDITS -->
+      <section class="pk-section" id="credits">
+        <p class="section-label">Credits</p>
+        <div class="credits-list">
+          <div class="credit-row">
+            <span class="credit-role">Lead Developer &amp; Designer</span>
+            <span class="credit-name">Gabriel Colmenares</span>
+          </div>
+          <div class="credit-row">
+            <span class="credit-role">Art Director</span>
+            <span class="credit-name">Arturo Berrios</span>
+          </div>
+          <div class="credit-row">
+            <span class="credit-role">Composer &amp; Sound Designer</span>
+            <span class="credit-name">Cristofer Moreno</span>
+          </div>
+          <div class="credit-row">
+            <span class="credit-role">Studio</span>
+            <span class="credit-name">Astero Games — Medellín, Colombia</span>
+          </div>
+          <div class="credit-row">
+            <span class="credit-role">Engine</span>
+            <span class="credit-name">Unity</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="pk-section" id="contact">
+        <p class="section-label">Contact</p>
+        <div class="contact-box">
+          <p class="contact-box__label">Press &amp; Business Inquiries</p>
+          <p class="contact-box__email">
+            <a href="mailto:gabriel@astero.games">gabriel@astero.games</a>
+          </p>
+          <p class="contact-box__note">
+            For screenshots, key art, demo access, or any press-related requests — reach out directly. We respond quickly.
+          </p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer__inner">
+      <p class="footer__copy">© 2025 <span class="hi">Astero Games</span> · Rust &amp; Ruin Presskit</p>
+      <a href="/" class="footer__back">astero.games</a>
+    </div>
+  </footer>
+
+  <script>
+    // Scrollspy
+    const sections = document.querySelectorAll('.pk-section');
+    const navLinks  = document.querySelectorAll('#pk-nav a');
+    const observer  = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(a => a.classList.remove('active'));
+          const link = document.querySelector(`#pk-nav a[href="#${entry.target.id}"]`);
+          if (link) link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-15% 0px -75% 0px' });
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+</body>
+</html>

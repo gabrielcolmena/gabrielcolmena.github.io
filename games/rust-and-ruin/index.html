@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Rust &amp; Ruin — Astero Games</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KJ67EHSQY8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KJ67EHSQY8');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── VARIABLES ──────────────────────────────────────── */
+    :root {
+      --bg:     #1a1a1a;
+      --bg2:    #222222;
+      --bg3:    #2a2a2a;
+      --orange: #E8621A;
+      --teal:   #4ECDC4;
+      --coral:  #E8845A;
+      --white:  #ffffff;
+      --muted:  #cbcbcb;
+      --border: #333333;
+      --font:   'Space Grotesk', system-ui, sans-serif;
+      --mono:   'Space Mono', monospace;
+      --ease:   cubic-bezier(0.4, 0, 0.2, 1);
+      --max-w:  1100px;
+    }
+
+    /* ── RESET ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--white); font-family: var(--font); -webkit-font-smoothing: antialiased; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ── LOADING ────────────────────────────────────────── */
+    #loading {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono); font-size: 11px; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--muted);
+    }
+
+    /* ── NAV ────────────────────────────────────────────── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(26,26,26,0.92);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav__inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 40px; max-width: var(--max-w); margin: 0 auto;
+    }
+    .nav__back {
+      font-family: var(--mono); font-size: 12px; color: var(--muted);
+      letter-spacing: 0.05em; display: flex; align-items: center; gap: 8px;
+      transition: color 0.2s;
+    }
+    .nav__back:hover { color: var(--white); }
+    .nav__back::before { content: '←'; color: var(--orange); }
+    .nav__cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--orange); color: var(--white);
+      font-family: var(--mono); font-size: 10px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 10px 20px; border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .nav__cta:hover { background: #d45516; }
+    .nav__cta--ghost {
+      background: none; border: 1px solid rgba(232,98,26,0.35); color: var(--orange);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .nav__cta--ghost:hover { background: rgba(232,98,26,0.1); border-color: var(--orange); }
+
+    /* ── HERO ───────────────────────────────────────────── */
+    .game-hero {
+      padding: 120px 40px 80px;
+      position: relative; overflow: hidden;
+    }
+    .game-hero::before {
+      content: ''; position: absolute; top: -200px; right: -200px;
+      width: 800px; height: 800px;
+      background: radial-gradient(circle, rgba(232,98,26,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .game-hero__inner {
+      max-width: var(--max-w); margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 72px; align-items: center;
+    }
+    .game-hero__text { display: flex; flex-direction: column; gap: 22px; }
+    .eyebrow {
+      font-family: var(--mono); font-size: 11px; font-weight: 400;
+      letter-spacing: 0.3em; text-transform: uppercase; color: var(--orange);
+    }
+    h1 {
+      font-size: clamp(44px, 6vw, 80px); font-weight: 700;
+      line-height: 0.95; letter-spacing: -0.03em;
+    }
+    .game-hero__subtitle {
+      font-size: clamp(18px, 2vw, 24px); font-weight: 300;
+      color: #777; letter-spacing: -0.01em; margin-top: -8px;
+    }
+    .game-hero__tagline {
+      font-size: 19px; font-weight: 300; color: #ccc; line-height: 1.6;
+      max-width: 400px;
+    }
+    .status-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em;
+      text-transform: uppercase; padding: 5px 12px; border-radius: 2px;
+      border: 1px solid; width: fit-content;
+    }
+    .status-badge::before { content: '●'; font-size: 8px; }
+    .status-badge--released { color: var(--teal); border-color: rgba(78,205,196,0.35); }
+    .status-badge--released::before { color: var(--teal); }
+    .status-badge--dev { color: var(--orange); border-color: rgba(232,98,26,0.35); }
+    .status-badge--dev::before { color: var(--orange); }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--orange); color: var(--white);
+      font-family: var(--mono); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 14px 28px; border-radius: 2px; border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: #d45516; transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid var(--border); color: var(--muted);
+      font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em;
+      text-transform: uppercase; padding: 14px 24px; border-radius: 2px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--white); color: var(--white); }
+    .game-hero__img { position: relative; }
+    .game-hero__capsule {
+      width: 100%; border-radius: 4px; border: 1px solid var(--border);
+      display: block;
+    }
+    .game-hero__placeholder {
+      width: 100%; aspect-ratio: 16/9; border-radius: 4px;
+      border: 1px solid var(--border); background: var(--bg2);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .game-hero__placeholder span {
+      font-family: var(--mono); font-size: 48px; font-weight: 700;
+      color: var(--border); letter-spacing: -0.02em;
+    }
+    .game-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .tag {
+      font-family: var(--mono); font-size: 9px; letter-spacing: 0.2em;
+      text-transform: uppercase; padding: 5px 10px;
+      border: 1px solid var(--border); border-radius: 2px; color: var(--muted);
+    }
+
+    /* ── MAIN CONTENT GRID ──────────────────────────────── */
+    .content-wrap {
+      padding: 0 40px 80px;
+      border-top: 1px solid var(--border);
+    }
+    .content-grid {
+      max-width: var(--max-w); margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 340px;
+      gap: 64px; align-items: start;
+      padding-top: 64px;
+    }
+    .content-main { display: flex; flex-direction: column; gap: 64px; }
+
+    /* ── SECTION HEADERS ────────────────────────────────── */
+    .section-label {
+      font-family: var(--mono); font-size: 10px; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--muted);
+      padding-bottom: 20px; border-bottom: 1px solid var(--border);
+      margin-bottom: 28px;
+    }
+
+    /* ── ABOUT ──────────────────────────────────────────── */
+    .about { display: flex; flex-direction: column; gap: 0; }
+    .about p {
+      font-size: 17px; line-height: 1.8; color: #ccc;
+      padding-bottom: 16px;
+    }
+    .about p:last-child { padding-bottom: 0; }
+
+    /* ── FEATURES ───────────────────────────────────────── */
+    .features { display: flex; flex-direction: column; gap: 0; }
+    .feature-item {
+      display: flex; align-items: baseline; gap: 14px;
+      padding: 13px 0; border-bottom: 1px solid var(--border);
+      font-size: 15px; color: #ccc; line-height: 1.5;
+    }
+    .feature-item:first-child { border-top: 1px solid var(--border); }
+    .feature-item::before { content: '→'; color: var(--orange); font-size: 13px; flex-shrink: 0; }
+
+    /* ── SCREENSHOTS ────────────────────────────────────── */
+    .screenshots-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .screenshot {
+      aspect-ratio: 16/9; border-radius: 3px; overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .screenshot img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; }
+    .game-hero__capsule { cursor: zoom-in; }
+
+    /* ── IMAGE VIEWER ───────────────────────────────────── */
+    .viewer {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(0,0,0,0.94);
+      display: none; align-items: center; justify-content: center;
+    }
+    .viewer.open { display: flex; }
+    .viewer__img {
+      max-width: min(90vw, 1200px); max-height: 85vh;
+      width: auto; height: auto;
+      border-radius: 4px; display: block; object-fit: contain;
+    }
+    .viewer__close {
+      position: fixed; top: 20px; right: 28px;
+      font-family: var(--mono); font-size: 18px; color: var(--muted);
+      background: none; border: none; cursor: pointer;
+      padding: 8px; line-height: 1; transition: color 0.2s;
+    }
+    .viewer__close:hover { color: var(--white); }
+    .viewer__btn {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      background: rgba(26,26,26,0.7); border: 1px solid var(--border);
+      color: var(--muted); width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 18px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .viewer__btn:hover { border-color: var(--orange); color: var(--orange); }
+    .viewer__btn--prev { left: 20px; }
+    .viewer__btn--next { right: 20px; }
+    .viewer__btn[hidden] { display: none; }
+    .viewer__counter {
+      position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+      font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--muted);
+    }
+    .screenshot--placeholder {
+      background: var(--bg2);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 8px;
+    }
+    .screenshot--placeholder span {
+      font-family: var(--mono); font-size: 9px; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--border);
+    }
+    .screenshot--placeholder::before {
+      content: ''; display: block;
+      width: 24px; height: 24px;
+      border: 1px dashed var(--border); border-radius: 50%;
+    }
+
+    /* ── FACTSHEET SIDEBAR ──────────────────────────────── */
+    .factsheet {
+      position: sticky; top: 80px;
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 4px; overflow: hidden;
+    }
+    .factsheet__header {
+      padding: 18px 22px; border-bottom: 1px solid var(--border);
+      font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .factsheet__rows { display: flex; flex-direction: column; }
+    .factsheet__row {
+      display: flex; flex-direction: column; gap: 3px;
+      padding: 14px 22px; border-bottom: 1px solid var(--border);
+    }
+    .factsheet__row:last-child { border-bottom: none; }
+    .factsheet__key {
+      font-family: var(--mono); font-size: 9px; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .factsheet__val { font-size: 14px; font-weight: 500; color: var(--white); }
+    .factsheet__val.hi { color: var(--orange); }
+    .factsheet__val.teal { color: var(--teal); }
+    .factsheet__contact {
+      padding: 16px 22px;
+      font-family: var(--mono); font-size: 11px; color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+    .factsheet__contact a {
+      color: var(--orange); transition: color 0.2s;
+    }
+    .factsheet__contact a:hover { color: var(--white); }
+
+    /* ── TEAM ───────────────────────────────────────────── */
+    .team-section {
+      padding: 0 40px 80px;
+    }
+    .team-section__inner {
+      max-width: var(--max-w); margin: 0 auto;
+      border-top: 1px solid var(--border); padding-top: 64px;
+    }
+    .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+    .team-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 4px; padding: 26px 22px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .team-avatar {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: rgba(255,255,255,0.03);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono); font-size: 13px; font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .team-card h3 { font-size: 16px; font-weight: 600; }
+    .team-role {
+      font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .team-bio { font-size: 13px; color: #888; line-height: 1.65; }
+
+    /* ── FOOTER ─────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border); padding: 36px 40px;
+    }
+    .footer__inner {
+      max-width: var(--max-w); margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; flex-wrap: wrap;
+    }
+    .footer__copy {
+      font-family: var(--mono); font-size: 11px;
+      color: var(--muted); letter-spacing: 0.08em;
+    }
+    .footer__copy .hi { color: var(--orange); }
+    .footer__back {
+      font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted);
+      display: flex; align-items: center; gap: 6px; transition: color 0.2s;
+    }
+    .footer__back:hover { color: var(--white); }
+
+    /* ── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .game-hero__inner { grid-template-columns: 1fr; gap: 44px; }
+      .game-hero__inner .game-hero__img { order: -1; }
+      .content-grid { grid-template-columns: 1fr; }
+      .factsheet { position: static; }
+      .screenshots-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .nav__inner, .game-hero, .content-wrap, .team-section, footer { padding-left: 24px; padding-right: 24px; }
+      h1 { font-size: 40px; }
+      .screenshots-grid { grid-template-columns: 1fr; }
+      .hero-btns { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="loading">Loading…</div>
+
+  <script>
+    const DATA_URL = '/data/rust-and-ruin.json';
+
+    /* ── HELPERS ──────────────────────────────────────── */
+    const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+    function fmtDate(iso) {
+      if (!iso) return null;
+      const d = new Date(iso);
+      return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    }
+
+    function fmtPrice(p) {
+      if (!p) return null;
+      const fmt = new Intl.NumberFormat('en-US', { style: 'currency', currency: p.currency }).format(p.amount);
+      if (p.amount == 0) { return '<span style="font-size:12px">TBD</span>'; }
+      else return p.note ? `${fmt} <span style="color:var(--muted);font-size:12px">(${esc(p.note)})</span>` : fmt;
+    }
+
+    /* ── RENDER SECTIONS ──────────────────────────────── */
+    function renderNav(g) {
+      const cta = g.links.steam
+        ? `<a href="${esc(g.links.steam)}" target="_blank" rel="noopener" class="nav__cta">Play on Steam</a>`
+        : '';
+      return `
+        <nav class="nav">
+          <div class="nav__inner">
+            <a href="/" class="nav__back">astero.games</a>
+            ${cta}
+          </div>
+        </nav>`;
+    }
+
+    function renderHero(g) {
+      const isReleased = g.status === 'released';
+      const badgeClass = isReleased ? 'status-badge--released' : 'status-badge--dev';
+      const badgeLabel = isReleased ? 'Available Now' : 'In Development';
+
+      const img = g.media.capsule
+        ? `<img src="${esc(g.media.capsule)}" alt="${esc(g.name)}" class="game-hero__capsule" data-viewer="${esc(g.media.capsule)}" loading="eager">`
+        : `<div class="game-hero__placeholder"><span>${esc(g.name)}</span></div>`;
+
+      const steamBtn = g.links.steam
+        ? `<a href="${esc(g.links.steam)}" target="_blank" rel="noopener" class="btn-primary"
+             onclick="gtag('event','button_click',{'event_category':'game_page','event_label':'steam_${esc(g.id)}'})">
+             Play on Steam
+           </a>`
+        : '';
+
+      const presskitBtn = g.links.presskit
+        ? `<a href="${esc(g.links.presskit)}" class="${steamBtn ? 'btn-secondary' : 'btn-primary'}">Presskit →</a>`
+        : '';
+
+      const subtitle = g.subtitle
+        ? `<p class="game-hero__subtitle">${esc(g.subtitle)}</p>` : '';
+
+      const tags = g.genre.concat(g.tags.slice(0,3))
+        .map(t => `<span class="tag">${esc(t)}</span>`).join('');
+
+      return `
+        <section class="game-hero">
+          <div class="game-hero__inner">
+            <div class="game-hero__text">
+              <p class="eyebrow">${esc(g.studio.name)}</p>
+              <h1>${esc(g.name)}</h1>
+              ${subtitle}
+              <span class="status-badge ${badgeClass}">${badgeLabel}</span>
+              <p class="game-hero__tagline">${esc(g.tagline)}</p>
+              <div class="game-tags">${tags}</div>
+              <div class="hero-btns">${steamBtn}${presskitBtn}</div>
+            </div>
+            <div class="game-hero__img">${img}</div>
+          </div>
+        </section>`;
+    }
+
+    function renderFactsheet(g) {
+      const release = g.releaseDate ? fmtDate(g.releaseDate)
+        : g.expectedRelease ? `${esc(g.expectedRelease)}` : '—';
+
+      const platforms = g.platforms.map(p =>
+        p.url ? `<a href="${esc(p.url)}" target="_blank" rel="noopener" style="color:var(--teal)">${esc(p.name)} · ${esc(p.store)}</a>`
+              : `${esc(p.name)}${p.store ? ' · ' + esc(p.store) : ''}`
+      ).join('<br>');
+
+      const price = fmtPrice(g.pricing);
+
+      const rows = [
+        { key: 'Studio',    val: `<a href="${esc(g.studio.website)}" style="color:var(--teal)">${esc(g.studio.name)}</a>` },
+        { key: 'Developer', val: g.team.map(m => esc(m.name)).join('<br>') },
+        { key: 'Release',   val: release },
+        { key: 'Platform',  val: platforms },
+        { key: 'Price',     val: price },
+        { key: 'Genre',     val: g.genre.map(t => esc(t)).join(', ') },
+        { key: 'Engine',    val: esc(g.engine) },
+        { key: 'Languages', val: g.languages.map(l => esc(l)).join(', ') },
+        g.ageRating ? { key: 'Rating', val: esc(g.ageRating) } : null,
+      ].filter(Boolean);
+
+      const rowsHtml = rows.map(r =>
+        `<div class="factsheet__row">
+           <span class="factsheet__key">${r.key}</span>
+           <span class="factsheet__val">${r.val}</span>
+         </div>`
+      ).join('');
+
+      return `
+        <aside class="factsheet">
+          <div class="factsheet__header">Factsheet</div>
+          <div class="factsheet__rows">${rowsHtml}</div>
+          <div class="factsheet__contact">
+            Press contact:<br>
+            <a href="mailto:${esc(g.contact)}">${esc(g.contact)}</a>
+          </div>
+        </aside>`;
+    }
+
+    function renderAbout(g) {
+      const paras = g.description.map(p => `<p>${esc(p)}</p>`).join('');
+      return `
+        <div class="about-section">
+          <p class="section-label">About</p>
+          <div class="about">${paras}</div>
+        </div>`;
+    }
+
+    function renderFeatures(g) {
+      if (!g.features.length) return '';
+      const items = g.features.map(f =>
+        `<div class="feature-item">${esc(f)}</div>`
+      ).join('');
+      return `
+        <div class="features-section">
+          <p class="section-label">Features</p>
+          <div class="features">${items}</div>
+        </div>`;
+    }
+
+    function renderScreenshots(g) {
+      const PLACEHOLDER_COUNT = 6;
+      let cells;
+
+      if (g.media.screenshots.length) {
+        cells = g.media.screenshots.map(src =>
+          `<div class="screenshot">
+             <img src="${esc(src)}" alt="${esc(g.name)} screenshot" loading="lazy" data-viewer="${esc(src)}">
+           </div>`
+        ).join('');
+      } else {
+        cells = Array(PLACEHOLDER_COUNT).fill(0).map(() =>
+          `<div class="screenshot screenshot--placeholder">
+             <span>Coming soon</span>
+           </div>`
+        ).join('');
+      }
+
+      return `
+        <div class="screenshots-section">
+          <p class="section-label">Screenshots</p>
+          <div class="screenshots-grid">${cells}</div>
+        </div>`;
+    }
+
+    function renderTeam(g) {
+      const cards = g.team.map(m => `
+        <div class="team-card">
+          <div class="team-avatar" style="border:1px solid ${esc(m.color)};color:${esc(m.color)}">${esc(m.initials)}</div>
+          <h3>${esc(m.name)}</h3>
+          <p class="team-role" style="color:${esc(m.color)}">${esc(m.role)}</p>
+          <p class="team-bio">${esc(m.bio)}</p>
+        </div>`
+      ).join('');
+
+      return `
+        <section class="team-section">
+          <div class="team-section__inner">
+            <p class="section-label">Team</p>
+            <div class="team-grid">${cards}</div>
+          </div>
+        </section>`;
+    }
+
+    function renderFooter(g) {
+      return `
+        <footer>
+          <div class="footer__inner">
+            <p class="footer__copy">© 2025 <span class="hi">Astero Games</span> · ${esc(g.name)}</p>
+            <a href="/" class="footer__back">← astero.games</a>
+          </div>
+        </footer>`;
+    }
+
+    /* ── MAIN ─────────────────────────────────────────── */
+    async function init() {
+      try {
+        const res  = await fetch(DATA_URL);
+        if (!res.ok) throw new Error(res.status);
+        const game = await res.json();
+
+        // Update meta
+        document.title = `${game.name}${game.subtitle ? ' — ' + game.subtitle : ''} · Astero Games`;
+        const desc = document.querySelector('meta[name="description"]');
+        if (desc) desc.setAttribute('content', game.shortDescription);
+
+        // Render
+        document.getElementById('loading').remove();
+        document.body.insertAdjacentHTML('afterbegin', renderNav(game));
+        document.body.insertAdjacentHTML('beforeend', `
+          ${renderHero(game)}
+          <div class="content-wrap">
+            <div class="content-grid">
+              <div class="content-main">
+                ${renderAbout(game)}
+                ${renderFeatures(game)}
+                ${renderScreenshots(game)}
+              </div>
+              ${renderFactsheet(game)}
+            </div>
+          </div>
+          ${renderTeam(game)}
+          ${renderFooter(game)}
+        `);
+        setupViewer();
+      } catch (e) {
+        document.getElementById('loading').textContent = 'Failed to load game data.';
+        console.error(e);
+      }
+    }
+
+    function setupViewer() {
+      const images = [...document.querySelectorAll('[data-viewer]')];
+      if (!images.length) return;
+
+      const viewer = document.createElement('div');
+      viewer.className = 'viewer';
+      viewer.innerHTML = `
+        <button class="viewer__close">✕</button>
+        <button class="viewer__btn viewer__btn--prev">←</button>
+        <img class="viewer__img" src="" alt="">
+        <button class="viewer__btn viewer__btn--next">→</button>
+        <span class="viewer__counter"></span>
+      `;
+      document.body.appendChild(viewer);
+
+      const vImg     = viewer.querySelector('.viewer__img');
+      const vPrev    = viewer.querySelector('.viewer__btn--prev');
+      const vNext    = viewer.querySelector('.viewer__btn--next');
+      const vCounter = viewer.querySelector('.viewer__counter');
+      const vClose   = viewer.querySelector('.viewer__close');
+      let cur = 0;
+
+      function show(i) {
+        cur = i;
+        vImg.src = images[i].dataset.viewer;
+        vCounter.textContent = images.length > 1 ? `${i + 1} / ${images.length}` : '';
+        vPrev.hidden = (i === 0);
+        vNext.hidden = (i === images.length - 1);
+        viewer.classList.add('open');
+      }
+
+      images.forEach((img, i) => img.addEventListener('click', () => show(i)));
+      vClose.addEventListener('click', () => viewer.classList.remove('open'));
+      vPrev.addEventListener('click',  () => { if (cur > 0) show(cur - 1); });
+      vNext.addEventListener('click',  () => { if (cur < images.length - 1) show(cur + 1); });
+      viewer.addEventListener('click', e => { if (e.target === viewer) viewer.classList.remove('open'); });
+      document.addEventListener('keydown', e => {
+        if (!viewer.classList.contains('open')) return;
+        if (e.key === 'Escape')      viewer.classList.remove('open');
+        if (e.key === 'ArrowRight' && cur < images.length - 1) show(cur + 1);
+        if (e.key === 'ArrowLeft'  && cur > 0)                 show(cur - 1);
+      });
+    }
+
+    init();
+  </script>
+</body>
+</html>

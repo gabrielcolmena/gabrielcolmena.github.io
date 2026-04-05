@@ -1,0 +1,94 @@
+{
+  "id": "rust-and-ruin",
+  "name": "Rust & Ruin",
+  "subtitle": null,
+  "tagline": "Rust & Ruin is a deckbuilder battler about robot fights. The cards you get are random, but not what you do with them. Spend to redraw and beat the odds, manage your budget and build a bot tough enough to survive whatever the arena throws at you!",
+  "shortDescription": "A deck-builder roguelike where you command the robot you built — and fight with whatever cards you're dealt.",
+  "description": [
+    "Rust & Ruin is a deck-builder roguelike about the childhood fantasy of robot combat. You build your robot before the run — choosing its chassis, parts, and chips. That robot is yours. You care about it.",
+    "Then every battle, you're dealt a random hand of cards. Those cards are how you command your bot. You don't optimize a perfect deck. You react, adapt, and fight with what you've got. The robot you built is the constant — the cards are just the interface."
+  ],
+  "status": "in-development",
+  "releaseDate": null,
+  "expectedRelease": "TBD",
+  "earlyAccess": false,
+  "platforms": [
+    {
+      "name": "PC",
+      "store": "Steam",
+      "url": null
+    }
+  ],
+  "pricing": {
+    "amount": 0,
+    "currency": "USD",
+    "model": "premium",
+    "note": "Estimated"
+  },
+  "genre": ["Roguelike", "Deck-builder"],
+  "tags": ["Robot Combat", "Turn-based", "Strategy", "Run-based", "Customization"],
+  "gameModes": ["Story Run", "Endless"],
+  "features": [
+    "Build and name your own robot before each run",
+    "Random card draws every battle — adapt or lose",
+    "20+ chip types that modify your robot's abilities",
+    "Buy, sell, and upgrade chips at mid-run shops",
+    "Branched map with meaningful progression choices",
+    "Multiple robot chassis with distinct playstyles",
+    "Working demo with complete game loop available"
+  ],
+  "engine": "Unity",
+  "languages": ["English"],
+  "ageRating": null,
+  "fileSize": null,
+  "studio": {
+    "name": "Astero Games",
+    "location": "Remote",
+    "website": "https://astero.games",
+    "founded": "2019"
+  },
+  "team": [
+    {
+      "initials": "GC",
+      "name": "Gabriel Colmenares",
+      "role": "Lead Developer & Designer",
+      "bio": "Mobile software engineer from Uber. Indie game developer. Full-time on Rust & Ruin.",
+      "color": "#E8621A"
+    },
+    {
+      "initials": "AB",
+      "name": "Arturo Berrios",
+      "role": "Art Director",
+      "bio": "Studied video game concept art in Madrid. Defining the visual identity and world of Rust & Ruin.",
+      "color": "#4ECDC4"
+    },
+    {
+      "initials": "CM",
+      "name": "Cristofer Moreno",
+      "role": "Composer & Sound Designer",
+      "bio": "Worked on audio and sound design for God of War: Sons of Sparta. Bringing the world of Rust & Ruin to life.",
+      "color": "#E8845A"
+    }
+  ],
+  "links": {
+    "steam": null,
+    "trailer": null,
+    "website": null,
+    "presskit": "/presskit/rust-and-ruin/"
+  },
+  "media": {
+    "capsule": "/images/rr/key-art-horizontal.png",
+    "logo": null,
+    "screenshots": [
+      "/images/rr/ss_1.jpg",
+      "/images/rr/ss_2.jpg",
+      "/images/rr/ss_4.jpg",
+      "/images/rr/ss_5.jpg",
+      "/images/rr/ss_6.jpg",
+      "/images/rr/ss_7.jpg"
+    ],
+    "videos": []
+  },
+  "contact": "gabriel@astero.games",
+  "awards": []
+}

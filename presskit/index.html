@@ -1,407 +1,716 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="author" content="">
-<meta name="description" content="" />
-<meta name="keywords" content="gamedev, game development, game stuido, indie, indie dev, indie game development, unity" />
-<meta name="robots" content="noodp" />
-<meta name="theme-color" content="" />
-<link rel="canonical" href="https://astero.games/presskit/" />
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Hirocato — The Delivery Hero. Press kit for journalists and content creators.">
+  <meta name="keywords" content="Hirocato, presskit, press kit, indie game, platformer, Astero Games">
+  <link rel="canonical" href="https://astero.games/presskit/">
 
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KJ67EHSQY8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KJ67EHSQY8');
+  </script>
 
+  <title>Hirocato — Presskit · Astero Games</title>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KJ67EHSQY8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
 
-  gtag('config', 'G-KJ67EHSQY8');
-</script>
+  <meta property="og:title" content="Hirocato — Presskit">
+  <meta property="og:description" content="Press kit for Hirocato — The Delivery Hero by Astero Games.">
+  <meta property="og:image" content="https://cdn.akamai.steamstatic.com/steam/apps/2445060/header.jpg">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-    <title>
-        
-            Presskit :: Astero Games  — Creating with heart
-        
-    </title>
+  <style>
+    /* ── VARIABLES ──────────────────────────────────────── */
+    :root {
+      --bg:     #1a1a1a;
+      --bg2:    #222222;
+      --bg3:    #2a2a2a;
+      --orange: #E8621A;
+      --teal:   #4ECDC4;
+      --white:  #ffffff;
+      --muted:  #666666;
+      --border: #333333;
+      --font:   'Space Grotesk', system-ui, sans-serif;
+      --mono:   'Space Mono', monospace;
+      --max-w:  1100px;
+    }
 
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--white); font-family: var(--font); -webkit-font-smoothing: antialiased; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
 
+    /* ── NAV ────────────────────────────────────────────── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(26,26,26,0.92);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav__inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 40px; max-width: var(--max-w); margin: 0 auto;
+    }
+    .nav__back {
+      font-family: var(--mono); font-size: 12px; color: var(--muted);
+      letter-spacing: 0.05em; transition: color 0.2s;
+    }
+    .nav__back::before { content: '← '; color: var(--orange); }
+    .nav__back:hover { color: var(--white); }
+    .nav__right { display: flex; gap: 12px; align-items: center; }
+    .nav__link {
+      font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav__link:hover { color: var(--white); }
+    .nav__cta {
+      display: inline-flex; align-items: center;
+      background: var(--orange); color: var(--white);
+      font-family: var(--mono); font-size: 10px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 10px 20px; border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .nav__cta:hover { background: #d45516; }
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet"
-    type="text/css">
+    /* ── HERO ───────────────────────────────────────────── */
+    .pk-hero {
+      padding: 120px 40px 64px;
+      border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    .pk-hero::before {
+      content: ''; position: absolute; top: -150px; right: -150px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(232,98,26,0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .pk-hero__inner {
+      max-width: var(--max-w); margin: 0 auto;
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 40px; align-items: end;
+    }
+    .pk-hero__text { display: flex; flex-direction: column; gap: 14px; }
+    .eyebrow {
+      font-family: var(--mono); font-size: 11px; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--orange);
+    }
+    h1 {
+      font-size: clamp(44px, 6vw, 80px); font-weight: 700;
+      line-height: 0.93; letter-spacing: -0.03em;
+    }
+    .pk-hero__subtitle {
+      font-size: 20px; font-weight: 300; color: #777; letter-spacing: -0.01em;
+    }
+    .pk-hero__meta {
+      display: flex; gap: 20px; align-items: center; flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .pk-hero__meta span {
+      font-family: var(--mono); font-size: 11px; color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+    .pk-hero__meta .dot { color: var(--border); }
+    .pk-hero__capsule {
+      width: 320px; border-radius: 4px;
+      border: 1px solid var(--border); flex-shrink: 0;
+    }
 
+    /* ── LAYOUT ─────────────────────────────────────────── */
+    .pk-wrap {
+      max-width: var(--max-w); margin: 0 auto;
+      padding: 0 40px 100px;
+      display: grid;
+      grid-template-columns: 196px 1fr;
+      gap: 0;
+      align-items: start;
+    }
 
+    /* ── SIDEBAR ────────────────────────────────────────── */
+    .pk-sidebar {
+      position: sticky; top: 68px;
+      padding: 48px 32px 48px 0;
+      border-right: 1px solid var(--border);
+    }
+    .pk-sidebar__game {
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .pk-sidebar__game-label {
+      font-family: var(--mono); font-size: 9px; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 4px;
+    }
+    .pk-sidebar__game-name {
+      font-size: 14px; font-weight: 600; color: var(--white);
+    }
+    .pk-sidebar nav { display: flex; flex-direction: column; gap: 2px; }
+    .pk-sidebar a {
+      font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--muted);
+      padding: 7px 0; border-bottom: 1px solid transparent;
+      transition: color 0.2s;
+    }
+    .pk-sidebar a:hover { color: var(--white); }
+    .pk-sidebar a.active { color: var(--orange); }
 
-<link rel="stylesheet" href="/main.b78c3be9451dc4ca61ca377f3dc2cf2e6345a44c2bae46216a322ef366daa399.css">
+    /* ── MAIN ───────────────────────────────────────────── */
+    .pk-main {
+      padding: 48px 0 0 52px;
+      display: flex; flex-direction: column; gap: 64px;
+    }
 
+    /* ── SECTIONS ───────────────────────────────────────── */
+    .pk-section { scroll-margin-top: 100px; }
+    .section-label {
+      font-family: var(--mono); font-size: 10px; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--muted);
+      padding-bottom: 20px; border-bottom: 1px solid var(--border);
+      margin-bottom: 28px;
+    }
 
+    /* ── FACTSHEET ──────────────────────────────────────── */
+    .fact-table { display: flex; flex-direction: column; }
+    .fact-row {
+      display: grid; grid-template-columns: 150px 1fr;
+      gap: 20px; padding: 13px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: baseline;
+    }
+    .fact-row:first-child { border-top: 1px solid var(--border); }
+    .fact-key {
+      font-family: var(--mono); font-size: 9px; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--muted); padding-top: 2px;
+    }
+    .fact-val { font-size: 14px; color: #ccc; line-height: 1.6; }
+    .fact-val a { color: var(--teal); transition: color 0.2s; }
+    .fact-val a:hover { color: var(--white); }
+    .fact-links { display: flex; gap: 10px; flex-wrap: wrap; }
+    .fact-link {
+      font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--teal);
+      border: 1px solid rgba(78,205,196,0.3); padding: 4px 10px;
+      border-radius: 2px; transition: background 0.2s, border-color 0.2s;
+    }
+    .fact-link:hover { background: rgba(78,205,196,0.08); border-color: var(--teal); }
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
-    <link rel="shortcut icon" href="/favicon.ico">
-    <meta name="msapplication-TileColor" content="">
+    /* ── BODY TEXT ──────────────────────────────────────── */
+    .body-text { font-size: 15px; line-height: 1.8; color: #aaa; }
+    .body-text p { margin-bottom: 14px; }
+    .body-text p:last-child { margin-bottom: 0; }
+    .body-text strong { color: var(--white); font-weight: 600; }
+    .body-text em { color: var(--orange); font-style: normal; }
 
+    /* ── GAME MODES ─────────────────────────────────────── */
+    .modes { display: flex; flex-direction: column; gap: 44px; }
+    .mode { display: flex; flex-direction: column; gap: 14px; }
+    .mode__title {
+      font-size: 18px; font-weight: 600;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .mode__title::before {
+      content: ''; display: block; width: 3px; height: 18px;
+      background: var(--orange); border-radius: 2px; flex-shrink: 0;
+    }
+    .mode__desc { font-size: 14px; line-height: 1.75; color: #aaa; max-width: 560px; }
+    .mode__gif {
+      width: 100%; max-width: 560px; border-radius: 4px;
+      border: 1px solid var(--border);
+    }
 
-<meta itemprop="name" content="Presskit">
-<meta itemprop="description" content="Indie game development studio">
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://astero.games"/>
+    /* ── VIDEO EMBED ────────────────────────────────────── */
+    .video-wrap {
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .video-title {
+      font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .video-embed {
+      width: 100%; max-width: 560px; aspect-ratio: 16/9;
+      border-radius: 4px; border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .video-embed iframe { width: 100%; height: 100%; display: block; }
 
-<meta name="twitter:title" content="Presskit"/>
-<meta name="twitter:description" content="Indie game development studio"/>
+    /* ── DOWNLOAD LINK ──────────────────────────────────── */
+    .dl-links { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+    .dl-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted);
+      border: 1px solid var(--border); padding: 9px 16px; border-radius: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .dl-link:hover { color: var(--white); border-color: var(--white); }
+    .dl-link__arrow { color: var(--orange); }
 
+    /* ── MEDIA GRID ─────────────────────────────────────── */
+    .media-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
+    }
+    .media-item {
+      aspect-ratio: 16/9; border-radius: 3px; overflow: hidden;
+      border: 1px solid var(--border); cursor: pointer;
+      position: relative;
+    }
+    .media-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s; }
+    .media-item:hover img { transform: scale(1.03); }
+    .media-item::after {
+      content: '⤢'; position: absolute; bottom: 8px; right: 10px;
+      font-size: 14px; color: rgba(255,255,255,0.5);
+      opacity: 0; transition: opacity 0.2s;
+    }
+    .media-item:hover::after { opacity: 1; }
 
+    /* ── LOGO ITEMS ─────────────────────────────────────── */
+    .logo-items { display: flex; flex-direction: column; gap: 24px; }
+    .logo-item {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 4px; padding: 28px; display: flex;
+      flex-direction: column; gap: 14px; align-items: flex-start;
+      max-width: 360px;
+    }
+    .logo-item img { max-height: 80px; width: auto; }
 
+    /* ── SPOTIFY ────────────────────────────────────────── */
+    .spotify-wrap { display: flex; flex-direction: column; gap: 14px; }
+    .music-meta {
+      font-family: var(--mono); font-size: 11px; color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+    .music-meta span { color: var(--white); }
 
+    /* ── TEAM / CREDITS ─────────────────────────────────── */
+    .credits-list { display: flex; flex-direction: column; gap: 0; }
+    .credit-row {
+      display: grid; grid-template-columns: 200px 1fr;
+      gap: 20px; padding: 13px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: baseline;
+    }
+    .credit-row:first-child { border-top: 1px solid var(--border); }
+    .credit-role {
+      font-family: var(--mono); font-size: 9px; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .credit-name { font-size: 14px; font-weight: 500; color: var(--white); }
 
+    /* ── LIGHTBOX ───────────────────────────────────────── */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(0,0,0,0.92);
+      display: none; align-items: center; justify-content: center;
+      padding: 40px;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox__img { max-width: 90vw; max-height: 85vh; border-radius: 4px; display: block; }
+    .lightbox__close {
+      position: fixed; top: 20px; right: 28px;
+      font-family: var(--mono); font-size: 22px; color: var(--muted);
+      background: none; border: none; cursor: pointer;
+      transition: color 0.2s; line-height: 1;
+    }
+    .lightbox__close:hover { color: var(--white); }
 
+    /* ── FOOTER ─────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border); padding: 32px 40px;
+    }
+    .footer__inner {
+      max-width: var(--max-w); margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; flex-wrap: wrap;
+    }
+    .footer__copy { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+    .footer__copy .hi { color: var(--orange); }
+    .footer__back { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.1em; transition: color 0.2s; }
+    .footer__back:hover { color: var(--white); }
+    .footer__back::before { content: '← '; color: var(--orange); }
 
+    /* ── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 860px) {
+      .pk-hero__inner { grid-template-columns: 1fr; }
+      .pk-hero__capsule { width: 100%; max-width: 400px; }
+      .pk-wrap { grid-template-columns: 1fr; padding: 0 24px 80px; }
+      .pk-sidebar {
+        position: static; padding: 32px 0 24px;
+        border-right: none; border-bottom: 1px solid var(--border);
+      }
+      .pk-sidebar nav { flex-direction: row; flex-wrap: wrap; gap: 4px 16px; }
+      .pk-main { padding: 40px 0 0; }
+      .media-grid { grid-template-columns: 1fr; }
+      .nav__inner { padding: 16px 24px; }
+      .pk-hero { padding: 100px 24px 48px; }
+      footer { padding: 28px 24px; }
+    }
+    @media (max-width: 480px) {
+      h1 { font-size: 40px; }
+      .fact-row { grid-template-columns: 1fr; gap: 4px; }
+      .credit-row { grid-template-columns: 1fr; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
 
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="/" class="nav__back">astero.games</a>
+      <div class="nav__right">
+        <a href="/games/hirocato/" class="nav__link">Game page</a>
+        <a href="https://store.steampowered.com/app/2445060/Hirocato__The_Delivery_Hero/"
+           target="_blank" rel="noopener" class="nav__cta">Play on Steam</a>
+      </div>
+    </div>
+  </nav>
 
+  <!-- HERO -->
+  <header class="pk-hero">
+    <div class="pk-hero__inner">
+      <div class="pk-hero__text">
+        <p class="eyebrow">Presskit · Astero Games</p>
+        <h1>Hirocato</h1>
+        <p class="pk-hero__subtitle">The Delivery Hero</p>
+        <div class="pk-hero__meta">
+          <span>Platformer · Action · Indie</span>
+          <span class="dot">·</span>
+          <span>PC · Steam</span>
+          <span class="dot">·</span>
+          <span>v0.3.x</span>
+        </div>
+      </div>
+      <img
+        src="https://cdn.akamai.steamstatic.com/steam/apps/2445060/header.jpg?t=1691984300"
+        alt="Hirocato — The Delivery Hero"
+        class="pk-hero__capsule"
+        loading="eager"
+      >
+    </div>
+  </header>
 
-<link rel="alternate" type="application/rss+xml" href="https://astero.games/presskit/index.xml" title="Astero Games" />
+  <!-- CONTENT -->
+  <div class="pk-wrap">
 
+    <!-- Sidebar -->
+    <aside class="pk-sidebar">
+      <div class="pk-sidebar__game">
+        <p class="pk-sidebar__game-label">Game</p>
+        <p class="pk-sidebar__game-name">Hirocato</p>
+      </div>
+      <nav id="pk-nav">
+        <a href="#factsheet">Factsheet</a>
+        <a href="#pitch">Pitch</a>
+        <a href="#about">About</a>
+        <a href="#videos">Videos</a>
+        <a href="#keyart">Key Art</a>
+        <a href="#music">Music</a>
+        <a href="#screenshots">Screenshots</a>
+        <a href="#logos">Logos</a>
+        <a href="#credits">Credits</a>
+      </nav>
+    </aside>
 
+    <!-- Main content -->
+    <main class="pk-main">
 
-
-
-<link href="/css/custom_styles.css" rel="stylesheet"
-    type="text/css">
-
-    <meta property="og:site_name" content="Astero Games"/>
-
-    <meta property="og:title" content="Astero Games"/>
-
-    <meta property="og:type" content="Game development studio"/>
-
-    <meta property="og:url" content="astero.games"/>
-
-    <meta property="og:description" content="Indie game development studio"/>
-
-    <meta property="og:image" content="https://www.astero.games/images/logo.jpg"/>
-
-<script defer src="https://use.fontawesome.com/releases/v6.0.0/js/all.js" integrity="sha384-l+HksIGR+lyuyBo1+1zCBSRt6v4yklWu7RbG0Cv+jDLDD9WFcEIwZLHioVB4Wkau" crossorigin="anonymous"></script>
-
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-    </head>
-
-    
-        <body>
-    
-    
-        <div class="container">
-            <header class="header">
-    <span class="header__inner">
-        <a href="/" style="text-decoration: none;">
-    <div class="logo">
-        
-            <span class="logo__mark">></span>
-            <span class="logo__text ">
-                $ cd /astero.games/</span>
-            <span class="logo__cursor" style=
-                  "
-                   
-                   ">
+      <!-- FACTSHEET -->
+      <section class="pk-section" id="factsheet">
+        <p class="section-label">Factsheet</p>
+        <div class="fact-table">
+          <div class="fact-row">
+            <span class="fact-key">Game</span>
+            <span class="fact-val">
+              <a href="https://store.steampowered.com/app/2445060/Hirocato__The_Delivery_Hero/" target="_blank" rel="noopener">
+                Hirocato — The Delivery Hero
+              </a>
             </span>
-        
-    </div>
-</a>
-
-
-        <span class="header__right">
-            
-                <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://store.steampowered.com/app/2445060/Hirocato__The_Delivery_Hero/">Hirocato</a></li><li><a href="/presskit">Presskit</a></li>
-    </ul>
-</nav>
-
-                <span class="menu-trigger">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-                    </svg>
-                </span>
-            
-        </span>
-    </span>
-</header>
-
-
-            <div class="content">
-                
-
-
-
-<div class="presskit main-container max-width w-100 flex-h">
-    <div class="sidebar w-20">
-        <ul>
-            <li><a class='page-scroll' href="#factsheet">Factsheet</a></li>
-            <li><a class='page-scroll' href="#pitch">Pitch</a></li>
-            <li><a class='page-scroll' href="#about">About this game</a></li>
-            <li><a class='page-scroll' href="#videos">Videos</a></li>
-            <li><a class='page-scroll' href="#keyart">Key Art</a></li>
-            <li><a class='page-scroll' href="#music">Music</a></li>
-            <li><a class='page-scroll' href="#images">Images</a></li>
-            <li><a class='page-scroll' href="#branding">Branding</a></li>
-            <li><a class='page-scroll' href="#logos">Logos</a></li>
-            <li><a class='page-scroll' href="#about">About</a></li>
-            <li><a class='page-scroll' href="#credits">Credits</a></li>
-        </ul>
-    </div>
-    <div class="main-content w-80">
-        <p class="title">Factsheet</p>
-        <p class="description">
-            <b>Game</b><br>
-            <a href="http://store.steampowered.com/app/2445060/Hirocato__The_Delivery_Hero/"><b>Hirocato - The Delivery Hero</b></a><br>
-            <br>
-            <b>Current playable version</b>: 0.3.x <br>
-            <br>
-            <b>Release Date</b><br>
-            Q3 2024<br>
-            <br>
-            <b>Status</b><br>
-            Demo | Pre - Release<br>
-            <br>
-            <b>Developer</b> <br>
-            <a href="http://tiktok.com/@gabrielocolmena"><b>Gabriel Colmenares</b></a><br>
-            Based in Medellin - Colombia <br>
-            Founded 2023-01-01 <br>
-            <br>
-            <b>Platform</b><br>
-            <a href="http://store.steampowered.com/app/2445060/Hirocato__The_Delivery_Hero/">
-                <b>Steam</b>
-            </a> (Windows, MacOS) (2024)
-            <br>
-            <br>
-            <b>Social Network</b><br>
-            <a href="http://twitter.com/gabrielocolmena"><b>X</b></a> | 
-            <a href="http://threads.net/gabrielocolmena"><b>Threads</b></a> | 
-            <a href="http://tiktok.com/@gabrielocolmena"><b>Tiktok</b></a> | 
-            <a href="http://instagram.com/gabrielocolmena/"><b>Instagram</b></a>
-            <br>
-            <br>
-            <b>Discord Server</b><br>
-            <a href="https://discord.com/invite/4uYp4wqwb2"><b>Discord</b></a>
-            <br>
-            <br>
-            <b>Genres</b>
-            Platformer / Action / SideScroller / Indie
-        </p>
-        <hr>
-        <p  class="title">
-            Pitch
-        </p>
-        <p class="description">
-            <b>Hirocato</b> is an <b>adventure-platformer</b> game where you control a cat and have to <b>parkour</b> over platforms to deliver food. The game is loaded with <b>hard-to-beat levels, great music, hand-made pixel art, and an emotional story</b> 🐈🍜⚡️.
-        </p>
-        <hr>
-        <p class="title" id="about">
-            About this game
-        </p>
-        <p class="description">
-            <div>
-                <div id="aboutThisGame" class="game_page_autocollapse">
-                    <div id="game_area_description" class="game_area_description">
-                        <p class="description">
-                            Master your <b>parkour</b> skills to swiftly deliver food (and other items). Jump, dash, climb, dodge, and move with agility to complete each delivery as fast as possible.
-                        </p>
-                        <h4 class="bb_tag">Story Mode</h4>
-                        <p class="description">
-                            Deliver food and help others with special requests while discovering the unsettling truth of this animal-driven metropolis. <br>Why there's a Pig running a ramen shop? <br>Why didn’t Cato evolve like the other animals? <br><b>WHERE ARE THE HUMANS?!</b><br><br> 
-                        </p>
-                        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2445060/extras/story.gif?t=1717860889">
-                        <h4 class="bb_tag">Arcade Mode</h4>
-                        <p class="description">
-                            Arcade mode is all about speed-jump and meow. Replay your favorite routes while trying to get your name on the online scoreboard.<br><br> 
-                        </p>
-                        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2445060/extras/arcade.gif?t=1717860889">
-                        <h4 class="bb_tag">Ghost Race Mode</h4>
-                        <p class="description">
-                            Our favorite mode by far, download other players' best runs and try to beat them in a classic ghost race.<br><br> 
-                        </p>
-                        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2445060/extras/ghost.gif?t=1717860889">
-                        <h4 class="bb_tag">Scoreboards</h4>
-                        <p class="description">
-                            Stamp your mark on the game's Scoreboard, each route has an online scoreboard to compete with other players!<br><br>
-                        </p>
-                        <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2445060/extras/scoreboard_ss.png?t=1717860889"><br>
-                        <p class="description">
-                            <b><i>Are you ready?</i> </b><b>Welcome to Hirocato, the delivery hero.</b>						
-                        </p>
-                    </div>
-                </div>
-            <div class="game_page_autocollapse_fade"></div></div>
-        </p>
-        <hr>
-        <p class="title" id="videos">
-            Videos
-        </p>
-        <div class="content">
-            <p>Hirocato v0.2.x</p>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/FM4KWXU6b-0?si=fHL6HgrKVnK9iXJ5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <p><a target="_blank" href="https://drive.google.com/file/d/1VIkYS-Y8hN2wKrKATMC7U8-4u2I5FivK/view?usp=sharing">⬇ Download here</a></p>
-        </div>
-        <hr>
-        <p class="title" id="keyart">
-            Key Art
-        </p>
-        <p>
-            <div class="gallery">
-                <div class="flex-h">
-                    <img src="../images/current_ss.png" alt="Hirocato" class='key-art'>
-                </div>
-            </div>
-            <a href="../presskit/hirocato_artwork.psd">⬇ Download Hirocato artwork (.PSD)</a> <br>
-            <a target="_blank" href="../images/current_ss.png">⬇ Download Hirocato artwork (.png)</a>
-        </p>
-        <hr>
-        <p class="title" id="music">
-            Music
-        </p>
-        <p>
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/2C83T8bOQ8hVbTDOqrH0tq?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe><br>
-            Genres: Dark Synth | Techno | Slow Psytrance<br><br><a href="../presskit/hirocato_theme_1.wav">⬇ Download Level 1 theme song (.WAV)</a>
-        </p>
-        <hr>
-        <p class="title" id="images">
-            Images
-        </p>
-        <p class="description">
-            <div class="gallery">
-                <div class="flex-h">
-                    <img src="../images/cato_screenshots/screenshot_1.png" alt="Image 1" class="gallery-img">
-                    <img src="../images/cato_screenshots/screenshot_2.png" alt="Image 2" class="gallery-img">
-                </div>
-                <div class="flex-h">
-                    <img src="../images/cato_screenshots/screenshot_3.png" alt="Image 3" class="gallery-img">
-                    <img src="../images/cato_screenshots/screenshot_4.png" alt="Image 4" class="gallery-img">
-                </div>
-                <div class="flex-h">
-                    <img src="../images/cato_screenshots/screenshot_5.png" alt="Image 3" class="gallery-img">
-                    <img src="../images/cato_screenshots/screenshot_6.png" alt="Image 4" class="gallery-img">
-                </div>
-                <div class="flex-h">
-                    <img src="../images/cato_screenshots/screenshot_7.png" alt="Image 3" class="gallery-img">
-                    <img src="../images/cato_screenshots/screenshot_8.png" alt="Image 4" class="gallery-img">
-                </div>
-            </div>
-            <div class="modal">
-                <span class="close">&times;</span>
-                <img class="modal-content" id="modal-image">
-            </div>
-            
-        </p>
-        <hr>
-        <p class="title" id="branding">
-            Branding
-        </p>
-        <p class="description">
-            Astero Games is an independent video games development studio currently working on <b>"Hirocato - The Delivery Hero"</b>
-        </p>
-        <hr>
-        <p class="title" id="logos">
-            Logos
-        </p>
-        <p class="description">
-            <div class="gallery">
-                <div class="flex-h">
-                    <img src="../images/developer_logo.png" alt="Astero Games Logo">
-                </div>
-                <a target="_blank" href="../images/developer_logo.png">⬇ Download</a>
-            </div>
-        </p>
-        <hr>
-        <p class="description">
-            <div class="gallery">
-                <div class="flex-h">
-                    <img src="../images/library_logo.png" alt="Astero Games Logo">
-                </div>
-                <a target="_blank" href="../images/library_logo.png">⬇ Download</a>
-            </div>
-        </p>
-        <hr>
-    </div>
-</div>
-
-<style>
-    @media screen and (max-width: 600px) {
-        .sidebar {
-            display: none;
-        }
-    }
-
-    .key-art {
-        width: 100% !important;
-        margin: 10px 0;
-    }
-</style>
-
-<script>
-const images = document.querySelectorAll('.gallery-img');
-const modal = document.querySelector('.modal');
-const modalImage = document.getElementById('modal-image');
-const closeBtn = document.querySelector('.close');
-
-images.forEach(image => {
-    image.addEventListener('click', () => {
-        modalImage.src = image.src;
-        modal.style.display = 'flex';
-    });
-});
-
-closeBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
-});
-
-$(document).on('click', 'a.page-scroll', function(event) {
-    var $anchor = $(this);
-    var desiredHeight = $(window).height() - 577;
-    $('html, body').stop().animate({
-        scrollTop: $($anchor.attr('href')).offset().top - desiredHeight
-    }, 1500, 'easeInOutExpo');
-    event.preventDefault();
-});
-
-</script>
-
-
-            </div>
-
-            
-                <footer class="footer">
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>&copy; 2025</span>
-            
-            <span>ASTEROGAMES</span>
-        </div>
-    </div>
-    <div class="footer__inner">
-        <div class="footer__content">
           </div>
-    </div>
-</footer>
-
-            
+          <div class="fact-row">
+            <span class="fact-key">Version</span>
+            <span class="fact-val">0.3.x</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-key">Release Date</span>
+            <span class="fact-val">Q3 2024</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-key">Status</span>
+            <span class="fact-val">Demo · Pre-Release</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-key">Developer</span>
+            <span class="fact-val">
+              <a href="https://tiktok.com/@gabrielocolmena" target="_blank" rel="noopener">Gabriel Colmenares</a><br>
+              Medellín, Colombia<br>
+              Founded January 2023
+            </span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-key">Platform</span>
+            <span class="fact-val">
+              <a href="https://store.steampowered.com/app/2445060/Hirocato__The_Delivery_Hero/" target="_blank" rel="noopener">Steam</a>
+              — Windows · macOS
+            </span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-key">Genre</span>
+            <span class="fact-val">Platformer · Action · Side Scroller · Indie</span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-key">Social</span>
+            <span class="fact-val">
+              <div class="fact-links">
+                <a href="https://twitter.com/gabrielocolmena" target="_blank" rel="noopener" class="fact-link">X / Twitter</a>
+                <a href="https://threads.net/gabrielocolmena" target="_blank" rel="noopener" class="fact-link">Threads</a>
+                <a href="https://tiktok.com/@gabrielocolmena" target="_blank" rel="noopener" class="fact-link">TikTok</a>
+                <a href="https://instagram.com/gabrielocolmena/" target="_blank" rel="noopener" class="fact-link">Instagram</a>
+                <a href="https://discord.com/invite/4uYp4wqwb2" target="_blank" rel="noopener" class="fact-link">Discord</a>
+              </div>
+            </span>
+          </div>
+          <div class="fact-row">
+            <span class="fact-key">Press Contact</span>
+            <span class="fact-val">
+              <a href="mailto:gabriel@astero.games">gabriel@astero.games</a>
+            </span>
+          </div>
         </div>
+      </section>
 
-        
+      <!-- PITCH -->
+      <section class="pk-section" id="pitch">
+        <p class="section-label">Pitch</p>
+        <div class="body-text">
+          <p><strong>Hirocato</strong> is an <strong>adventure-platformer</strong> game where you control a cat and have to <strong>parkour</strong> over platforms to deliver food. The game is loaded with <strong>hard-to-beat levels, great music, hand-made pixel art, and an emotional story</strong>.</p>
+        </div>
+      </section>
 
+      <!-- ABOUT -->
+      <section class="pk-section" id="about">
+        <p class="section-label">About This Game</p>
+        <div class="body-text" style="margin-bottom:36px">
+          <p>Master your <strong>parkour</strong> skills to swiftly deliver food (and other items). Jump, dash, climb, dodge, and move with agility to complete each delivery as fast as possible.</p>
+        </div>
+        <div class="modes">
+          <div class="mode">
+            <h3 class="mode__title">Story Mode</h3>
+            <p class="mode__desc">Deliver food and help others with special requests while discovering the unsettling truth of this animal-driven metropolis. Why is there a Pig running a ramen shop? Why didn't Cato evolve like the other animals? <strong>Where are the humans?!</strong></p>
+            <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2445060/extras/story.gif?t=1717860889" alt="Story Mode" class="mode__gif" loading="lazy">
+          </div>
+          <div class="mode">
+            <h3 class="mode__title">Arcade Mode</h3>
+            <p class="mode__desc">Arcade mode is all about speed — jump and meow. Replay your favorite routes while trying to get your name on the online scoreboard.</p>
+            <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2445060/extras/arcade.gif?t=1717860889" alt="Arcade Mode" class="mode__gif" loading="lazy">
+          </div>
+          <div class="mode">
+            <h3 class="mode__title">Ghost Race Mode</h3>
+            <p class="mode__desc">Our favorite mode by far — download other players' best runs and try to beat them in a classic ghost race.</p>
+            <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2445060/extras/ghost.gif?t=1717860889" alt="Ghost Race Mode" class="mode__gif" loading="lazy">
+          </div>
+          <div class="mode">
+            <h3 class="mode__title">Scoreboards</h3>
+            <p class="mode__desc">Stamp your mark on the game's scoreboard. Each route has an online scoreboard to compete with other players.</p>
+            <img src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2445060/extras/scoreboard_ss.png?t=1717860889" alt="Scoreboards" class="mode__gif" loading="lazy">
+          </div>
+        </div>
+      </section>
 
+      <!-- VIDEOS -->
+      <section class="pk-section" id="videos">
+        <p class="section-label">Videos</p>
+        <div class="video-wrap">
+          <p class="video-title">Hirocato v0.2.x — Gameplay Trailer</p>
+          <div class="video-embed">
+            <iframe
+              src="https://www.youtube.com/embed/FM4KWXU6b-0?si=fHL6HgrKVnK9iXJ5"
+              title="Hirocato gameplay trailer"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+          <div class="dl-links">
+            <a href="https://drive.google.com/file/d/1VIkYS-Y8hN2wKrKATMC7U8-4u2I5FivK/view?usp=sharing"
+               target="_blank" rel="noopener" class="dl-link">
+              <span class="dl-link__arrow">↓</span> Download video
+            </a>
+          </div>
+        </div>
+      </section>
 
-<script type="text/javascript" src="/bundle.min.644292943ae47eef02fcd64b11757aeb8caeeaebf473a823b62099edccac808e8d82689359f285e5d95994e5ad5ae3b9c1ccc281eb1828e67d0ba6630f95b832.js" integrity="sha512-ZEKSlDrkfu8C/NZLEXV664yu6uv0c6gjtiCZ7cysgI6NgmiTWfKF5dlZlOWtWuO5wczCgesYKOZ9C6ZjD5W4Mg=="></script>
+      <!-- KEY ART -->
+      <section class="pk-section" id="keyart">
+        <p class="section-label">Key Art</p>
+        <div class="media-grid" style="grid-template-columns:1fr">
+          <div class="media-item" style="aspect-ratio:auto; max-width:560px">
+            <img src="/images/current_ss.png" alt="Hirocato key art" style="width:100%;height:auto;object-fit:cover" loading="lazy">
+          </div>
+        </div>
+        <div class="dl-links">
+          <a href="/presskit/hirocato_artwork.psd" class="dl-link">
+            <span class="dl-link__arrow">↓</span> Download artwork (.PSD)
+          </a>
+          <a href="/images/current_ss.png" target="_blank" rel="noopener" class="dl-link">
+            <span class="dl-link__arrow">↓</span> Download artwork (.PNG)
+          </a>
+        </div>
+      </section>
 
+      <!-- MUSIC -->
+      <section class="pk-section" id="music">
+        <p class="section-label">Music</p>
+        <div class="spotify-wrap">
+          <iframe
+            style="border-radius:4px; border: 1px solid var(--border);"
+            src="https://open.spotify.com/embed/album/2C83T8bOQ8hVbTDOqrH0tq?utm_source=generator"
+            width="100%" height="200" frameBorder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+          <p class="music-meta">
+            Genres: <span>Dark Synth</span> · <span>Techno</span> · <span>Slow Psytrance</span>
+          </p>
+          <div class="dl-links">
+            <a href="/presskit/hirocato_theme_1.wav" class="dl-link">
+              <span class="dl-link__arrow">↓</span> Download Level 1 theme (.WAV)
+            </a>
+          </div>
+        </div>
+      </section>
 
+      <!-- SCREENSHOTS -->
+      <section class="pk-section" id="screenshots">
+        <p class="section-label">Screenshots</p>
+        <div class="media-grid">
+          <div class="media-item" data-src="/images/cato_screenshots/screenshot_1.png">
+            <img src="/images/cato_screenshots/screenshot_1.png" alt="Screenshot 1" loading="lazy">
+          </div>
+          <div class="media-item" data-src="/images/cato_screenshots/screenshot_2.png">
+            <img src="/images/cato_screenshots/screenshot_2.png" alt="Screenshot 2" loading="lazy">
+          </div>
+          <div class="media-item" data-src="/images/cato_screenshots/screenshot_3.png">
+            <img src="/images/cato_screenshots/screenshot_3.png" alt="Screenshot 3" loading="lazy">
+          </div>
+          <div class="media-item" data-src="/images/cato_screenshots/screenshot_4.png">
+            <img src="/images/cato_screenshots/screenshot_4.png" alt="Screenshot 4" loading="lazy">
+          </div>
+          <div class="media-item" data-src="/images/cato_screenshots/screenshot_5.png">
+            <img src="/images/cato_screenshots/screenshot_5.png" alt="Screenshot 5" loading="lazy">
+          </div>
+          <div class="media-item" data-src="/images/cato_screenshots/screenshot_6.png">
+            <img src="/images/cato_screenshots/screenshot_6.png" alt="Screenshot 6" loading="lazy">
+          </div>
+          <div class="media-item" data-src="/images/cato_screenshots/screenshot_7.png">
+            <img src="/images/cato_screenshots/screenshot_7.png" alt="Screenshot 7" loading="lazy">
+          </div>
+          <div class="media-item" data-src="/images/cato_screenshots/screenshot_8.png">
+            <img src="/images/cato_screenshots/screenshot_8.png" alt="Screenshot 8" loading="lazy">
+          </div>
+        </div>
+      </section>
 
-    </body>
+      <!-- LOGOS -->
+      <section class="pk-section" id="logos">
+        <p class="section-label">Logos</p>
+        <div class="logo-items">
+          <div class="logo-item">
+            <img src="/images/developer_logo.png" alt="Astero Games developer logo">
+            <a href="/images/developer_logo.png" target="_blank" rel="noopener" class="dl-link">
+              <span class="dl-link__arrow">↓</span> Download developer logo
+            </a>
+          </div>
+          <div class="logo-item">
+            <img src="/images/library_logo.png" alt="Astero Games library logo">
+            <a href="/images/library_logo.png" target="_blank" rel="noopener" class="dl-link">
+              <span class="dl-link__arrow">↓</span> Download library logo
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- CREDITS -->
+      <section class="pk-section" id="credits">
+        <p class="section-label">Credits</p>
+        <div class="credits-list">
+          <div class="credit-row">
+            <span class="credit-role">Developer & Designer</span>
+            <span class="credit-name">Gabriel Colmenares</span>
+          </div>
+          <div class="credit-row">
+            <span class="credit-role">Studio</span>
+            <span class="credit-name">Astero Games — Medellín, Colombia</span>
+          </div>
+          <div class="credit-row">
+            <span class="credit-role">Engine</span>
+            <span class="credit-name">Unity</span>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox__close" id="lightbox-close">✕</button>
+    <img class="lightbox__img" id="lightbox-img" src="" alt="">
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer__inner">
+      <p class="footer__copy">© 2025 <span class="hi">Astero Games</span> · Hirocato Presskit</p>
+      <a href="/" class="footer__back">astero.games</a>
+    </div>
+  </footer>
+
+  <script>
+    // Lightbox
+    const lightbox     = document.getElementById('lightbox');
+    const lightboxImg  = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+
+    document.querySelectorAll('.media-item[data-src]').forEach(item => {
+      item.addEventListener('click', () => {
+        lightboxImg.src = item.dataset.src;
+        lightbox.classList.add('open');
+      });
+    });
+    lightboxClose.addEventListener('click', () => lightbox.classList.remove('open'));
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) lightbox.classList.remove('open'); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
+
+    // Scrollspy
+    const sections = document.querySelectorAll('.pk-section');
+    const navLinks  = document.querySelectorAll('#pk-nav a');
+    const observer  = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(a => a.classList.remove('active'));
+          const link = document.querySelector(`#pk-nav a[href="#${entry.target.id}"]`);
+          if (link) link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-15% 0px -75% 0px' });
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+</body>
 </html>

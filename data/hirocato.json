@@ -1,0 +1,79 @@
+{
+  "id": "hirocato",
+  "name": "Hirocato",
+  "subtitle": "The Delivery Hero",
+  "tagline": "Race the clock. Rule the streets.",
+  "shortDescription": "A fast-paced arcade delivery game starring Hiro — a hero racing against the clock through vibrant city streets.",
+  "description": [
+    "Play as Hiro, a delivery hero racing against the clock through vibrant city streets. Every second counts — master your routes, outpace rivals, and make the drop before time runs out.",
+    "Compete across story mode, high-score arcade runs, and ghost races where you chase down your own best time. Top the leaderboards and prove you're the fastest courier in the city."
+  ],
+  "status": "released",
+  "releaseDate": "2023-08-14",
+  "expectedRelease": null,
+  "earlyAccess": false,
+  "platforms": [
+    {
+      "name": "PC",
+      "store": "Steam",
+      "url": "https://store.steampowered.com/app/2445060/Hirocato__The_Delivery_Hero/"
+    }
+  ],
+  "pricing": {
+    "amount": 9.99,
+    "currency": "USD",
+    "model": "premium",
+    "note": null
+  },
+  "genre": ["Arcade", "Racing"],
+  "tags": ["Fast-paced", "Casual", "Singleplayer", "Scoreboards", "Time Trial"],
+  "gameModes": ["Story", "Arcade", "Ghost Race"],
+  "features": [
+    "Story mode with narrative progression across city districts",
+    "Arcade mode for pure high-score chasing",
+    "Ghost race — race against recordings of your own best runs",
+    "Online leaderboards to compete globally",
+    "Multiple routes and delivery zones to master"
+  ],
+  "engine": "Unity",
+  "languages": ["English"],
+  "ageRating": "E (Everyone)",
+  "fileSize": null,
+  "studio": {
+    "name": "Astero Games",
+    "location": "Remote",
+    "website": "https://astero.games",
+    "founded": "2019"
+  },
+  "team": [
+    {
+      "initials": "GC",
+      "name": "Gabriel Colmenares",
+      "role": "Developer & Designer",
+      "bio": "Mobile software engineer turned indie game developer. Sole developer on Hirocato — designed, coded, and shipped.",
+      "color": "#E8621A"
+    }
+  ],
+  "links": {
+    "steam": "https://store.steampowered.com/app/2445060/Hirocato__The_Delivery_Hero/",
+    "trailer": null,
+    "website": null,
+    "presskit": "/presskit"
+  },
+  "media": {
+    "capsule": "https://cdn.akamai.steamstatic.com/steam/apps/2445060/header.jpg?t=1691984300",
+    "logo": null,
+    "screenshots": [
+      "/images/cato_screenshots/ss_1.jpg",
+      "/images/cato_screenshots/ss_2.jpg",
+      "/images/cato_screenshots/ss_3.jpg",
+      "/images/cato_screenshots/ss_4.jpg",
+      "/images/cato_screenshots/ss_5.jpg",
+      "/images/cato_screenshots/ss_6.jpg",
+      "/images/cato_screenshots/ss_7.jpg"
+    ],
+    "videos": []
+  },
+  "contact": "gabriel@astero.games",
+  "awards": []
+}
