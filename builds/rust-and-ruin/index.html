@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Rust &amp; Ruin — Alpha Build</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:     #1a1a1a;
+      --bg2:    #222222;
+      --bg3:    #2a2a2a;
+      --orange: #E8621A;
+      --teal:   #4ECDC4;
+      --white:  #ffffff;
+      --muted:  #cbcbcb;
+      --border: #333333;
+      --font:   'Space Grotesk', system-ui, sans-serif;
+      --mono:   'Space Mono', monospace;
+      --ease:   cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--font);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ── CARD ─────────────────────────────────────────────── */
+    .card {
+      width: 100%;
+      max-width: 600px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    /* ── CAPSULE ──────────────────────────────────────────── */
+    .card__capsule {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--bg3);
+      overflow: hidden;
+      position: relative;
+    }
+    .card__capsule img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .card__capsule-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--border);
+      text-transform: uppercase;
+    }
+
+    /* ── BODY ─────────────────────────────────────────────── */
+    .card__body {
+      padding: 36px 40px 40px;
+    }
+
+    .card__eyebrow {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 10px;
+    }
+
+    .card__title {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .card__version {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    /* ── DIVIDER ──────────────────────────────────────────── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 28px 0;
+    }
+
+    /* ── META GRID ────────────────────────────────────────── */
+    .meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px 24px;
+      margin-bottom: 28px;
+    }
+    .meta__item {}
+    .meta__label {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+    .meta__value {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--white);
+    }
+
+    /* ── NOTES ────────────────────────────────────────────── */
+    .notes {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--orange);
+      border-radius: 4px;
+      padding: 18px 20px;
+      margin-bottom: 28px;
+    }
+    .notes__title {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 10px;
+    }
+    .notes__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .notes__list li {
+      font-size: 13px;
+      color: var(--muted);
+      padding-left: 16px;
+      position: relative;
+    }
+    .notes__list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--orange);
+      font-size: 11px;
+    }
+
+    /* ── DOWNLOAD BUTTON ──────────────────────────────────── */
+    .btn-download {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 16px 24px;
+      background: var(--orange);
+      color: var(--white);
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s var(--ease), transform 0.15s var(--ease);
+      text-decoration: none;
+    }
+    .btn-download:hover {
+      background: #d45516;
+      transform: translateY(-1px);
+    }
+    .btn-download:active {
+      transform: translateY(0);
+    }
+    .btn-download__icon {
+      font-size: 14px;
+    }
+
+    /* ── PLATFORM NOTE ────────────────────────────────────── */
+    .platform-note {
+      margin-top: 14px;
+      text-align: center;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    /* ── FOOTER ───────────────────────────────────────────── */
+    .footer {
+      margin-top: 28px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-align: center;
+    }
+    .footer a {
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .footer a:hover { color: var(--white); }
+
+    @media (max-width: 480px) {
+      .card__body { padding: 28px 24px 32px; }
+      .meta { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+
+    <div class="card__capsule">
+      <img src="/images/rr/key-art-horizontal.png" alt="Rust &amp; Ruin key art"
+           onerror="this.parentElement.innerHTML='<div class=\'card__capsule-placeholder\'>Rust &amp; Ruin</div>'">
+    </div>
+
+    <div class="card__body">
+
+      <p class="card__eyebrow">Alpha Build — Private</p>
+      <h1 class="card__title">Rust &amp; Ruin</h1>
+      <p class="card__version">Build v_alpha_0.5.0 &nbsp;·&nbsp; Windows &nbsp;·&nbsp; April 2026</p>
+
+      <div class="meta">
+        <div class="meta__item">
+          <p class="meta__label">Build</p>
+          <p class="meta__value">v_alpha_0.5.0</p>
+        </div>
+        <div class="meta__item">
+          <p class="meta__label">Platform</p>
+          <p class="meta__value">Windows (64-bit)</p>
+        </div>
+        <div class="meta__item">
+          <p class="meta__label">Engine</p>
+          <p class="meta__value">Unity</p>
+        </div>
+        <div class="meta__item">
+          <p class="meta__label">Status</p>
+          <p class="meta__value">Alpha</p>
+        </div>
+      </div>
+
+      <div class="notes">
+        <p class="notes__title">What's in this build</p>
+        <ul class="notes__list">
+          <li>Complete battle loop with random card draws</li>
+          <li>Branched map with shop and progression</li>
+          <li>5–10 minute runs, multiple encounters</li>
+          <li>20 different chips to twist game rules</li>
+          <li>6+ card types with unique effects and interactions</li>
+        </ul>
+      </div>
+
+      <hr class="divider">
+
+      <a class="btn-download" href="./rust-and-ruin-alpha-b050-win.zip" download>
+        <span class="btn-download__icon">↓</span>
+        Download Build — Windows
+      </a>
+      <p class="platform-note">Extract the .zip and run Deckbuilder.exe</p>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    Shared privately by <a href="https://astero.games">Astero Games</a> &nbsp;·&nbsp; Not for public distribution
+  </footer>
+
+</body>
+</html>

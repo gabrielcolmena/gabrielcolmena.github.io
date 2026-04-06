@@ -3,10 +3,10 @@
   "name": "Rust & Ruin",
   "subtitle": null,
   "tagline": "Rust & Ruin is a deckbuilder battler about robot fights. The cards you get are random, but not what you do with them. Spend to redraw and beat the odds, manage your budget and build a bot tough enough to survive whatever the arena throws at you!",
-  "shortDescription": "A deck-builder roguelike where you command the robot you built — and fight with whatever cards you're dealt.",
+  "shortDescription": "A deck-builder roguelike where you command the robot you built, and fight with whatever cards you're dealt.",
   "description": [
-    "Rust & Ruin is a deck-builder roguelike about the childhood fantasy of robot combat. You build your robot before the run — choosing its chassis, parts, and chips. That robot is yours. You care about it.",
-    "Then every battle, you're dealt a random hand of cards. Those cards are how you command your bot. You don't optimize a perfect deck. You react, adapt, and fight with what you've got. The robot you built is the constant — the cards are just the interface."
+    "Rust & Ruin is a deck-builder roguelike about the childhood fantasy of robot combat. You build your robot before the run, choosing its chassis, parts, and chips. That robot is yours. You care about it.",
+    "Then every battle, you're dealt a random hand of cards. Those cards are how you command your bot. You don't optimize a perfect deck. You react, adapt, and fight with what you've got. The robot you built is the constant, the cards are just the interface."
   ],
   "status": "in-development",
   "releaseDate": null,
@@ -30,7 +30,7 @@
   "gameModes": ["Story Run", "Endless"],
   "features": [
     "Build and name your own robot before each run",
-    "Random card draws every battle — adapt or lose",
+    "Random card draws every battle, adapt or lose",
     "20+ chip types that modify your robot's abilities",
     "Buy, sell, and upgrade chips at mid-run shops",
     "Branched map with meaningful progression choices",
