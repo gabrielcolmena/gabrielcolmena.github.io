@@ -89,23 +89,42 @@
     }
     .nav__cta--ghost:hover { background: rgba(232,98,26,0.1); border-color: var(--orange); }
 
-    /* ── HERO ───────────────────────────────────────────── */
-    .game-hero {
-      padding: 120px 40px 80px;
+    /* ── DETAIL TOP (Steam-style) ─────────────────────── */
+    .game-detail-top {
+      padding: 100px 40px 40px;
       position: relative; overflow: hidden;
     }
-    .game-hero::before {
+    .game-detail-top::before {
       content: ''; position: absolute; top: -200px; right: -200px;
       width: 800px; height: 800px;
       background: radial-gradient(circle, rgba(232,98,26,0.07) 0%, transparent 65%);
       pointer-events: none;
     }
-    .game-hero__inner {
+    .game-detail-top__inner {
       max-width: var(--max-w); margin: 0 auto;
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 72px; align-items: center;
+      display: grid; grid-template-columns: 65fr 35fr;
+      gap: 16px; align-items: start;
     }
-    .game-hero__text { display: flex; flex-direction: column; gap: 22px; }
+    .game-detail-left {
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .game-detail-right {
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .game-detail-capsule {
+      width: 100%; border-radius: 4px; border: 1px solid var(--border);
+      display: block; cursor: zoom-in;
+    }
+    .game-detail-info {
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .game-detail-title {
+      font-size: clamp(22px, 2.5vw, 32px); font-weight: 700;
+      line-height: 1.1; letter-spacing: -0.02em;
+    }
+    .game-detail-desc {
+      font-size: 14px; line-height: 1.7; color: #ccc;
+    }
     .eyebrow {
       font-family: var(--mono); font-size: 11px; font-weight: 400;
       letter-spacing: 0.3em; text-transform: uppercase; color: var(--orange);
@@ -151,11 +170,17 @@
       transition: border-color 0.2s, color 0.2s;
     }
     .btn-secondary:hover { border-color: var(--white); color: var(--white); }
-    .game-hero__img { position: relative; }
-    .game-hero__capsule {
-      width: 100%; border-radius: 4px; border: 1px solid var(--border);
-      display: block;
+    .btn-itch {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #FA5C5C; color: var(--white);
+      font-family: var(--mono); font-size: 11px; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 14px 28px; border-radius: 2px; border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
     }
+    .btn-itch:hover { background: #e04848; transform: translateY(-1px); }
+    .nav__cta--itch { background: #FA5C5C; }
+    .nav__cta--itch:hover { background: #e04848; }
     .game-hero__placeholder {
       width: 100%; aspect-ratio: 16/9; border-radius: 4px;
       border: 1px solid var(--border); background: var(--bg2);
@@ -240,7 +265,6 @@
       border: 1px solid var(--border);
     }
     .screenshot img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; }
-    .game-hero__capsule { cursor: zoom-in; }
 
     /* ── IMAGE VIEWER ───────────────────────────────────── */
     .viewer {
@@ -377,8 +401,8 @@
 
     /* ── RESPONSIVE ─────────────────────────────────────── */
     @media (max-width: 900px) {
-      .game-hero__inner { grid-template-columns: 1fr; gap: 44px; }
-      .game-hero__inner .game-hero__img { order: -1; }
+      .game-detail-top__inner { grid-template-columns: 1fr; }
+      .game-detail-right { order: -1; }
       .content-grid { grid-template-columns: 1fr; }
       .factsheet { position: static; }
       .screenshots-grid { grid-template-columns: repeat(2, 1fr); }
@@ -418,7 +442,9 @@
     function renderNav(g) {
       const cta = g.links.steam
         ? `<a href="${esc(g.links.steam)}" target="_blank" rel="noopener" class="nav__cta">Play on Steam</a>`
-        : '';
+        : g.links.itch
+          ? `<a href="${esc(g.links.itch)}" target="_blank" rel="noopener" class="nav__cta nav__cta--itch">Play on itch.io</a>`
+          : '';
       return `
         <nav class="nav">
           <div class="nav__inner">
@@ -428,14 +454,33 @@
         </nav>`;
     }
 
-    function renderHero(g) {
+    function renderDetailTop(g) {
       const isReleased = g.status === 'released';
       const badgeClass = isReleased ? 'status-badge--released' : 'status-badge--dev';
       const badgeLabel = isReleased ? 'Available Now' : 'In Development';
 
-      const img = g.media.capsule
-        ? `<img src="${esc(g.media.capsule)}" alt="${esc(g.name)}" class="game-hero__capsule" data-viewer="${esc(g.media.capsule)}" loading="eager">`
-        : `<div class="game-hero__placeholder"><span>${esc(g.name)}</span></div>`;
+      // Left: video
+      let videoHtml = `<div class="game-hero__placeholder"><span>${esc(g.name)}</span></div>`;
+      if (g.links.trailer) {
+        const match = g.links.trailer.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+        if (match) {
+          const videoId = match[1];
+          videoHtml = `
+            <div class="video-embed">
+              <iframe
+                src="https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1"
+                title="${esc(g.name)} gameplay"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            </div>`;
+        }
+      }
+
+      // Right: capsule + info
+      const capsule = g.media.capsule
+        ? `<img src="${esc(g.media.capsule)}" alt="${esc(g.name)}" class="game-detail-capsule" data-viewer="${esc(g.media.capsule)}" loading="eager">`
+        : '';
 
       const steamBtn = g.links.steam
         ? `<a href="${esc(g.links.steam)}" target="_blank" rel="noopener" class="btn-primary"
@@ -444,8 +489,16 @@
            </a>`
         : '';
 
+      const itchBtn = g.links.itch
+        ? `<a href="${esc(g.links.itch)}" target="_blank" rel="noopener" class="btn-itch"
+             onclick="gtag('event','button_click',{'event_category':'game_page','event_label':'itch_${esc(g.id)}'})">
+             Play on itch.io
+           </a>`
+        : '';
+
+      const hasStorefront = steamBtn || itchBtn;
       const presskitBtn = g.links.presskit
-        ? `<a href="${esc(g.links.presskit)}" class="${steamBtn ? 'btn-secondary' : 'btn-primary'}">Presskit →</a>`
+        ? `<a href="${esc(g.links.presskit)}" class="${hasStorefront ? 'btn-secondary' : 'btn-primary'}">Presskit →</a>`
         : '';
 
       const subtitle = g.subtitle
@@ -455,18 +508,23 @@
         .map(t => `<span class="tag">${esc(t)}</span>`).join('');
 
       return `
-        <section class="game-hero">
-          <div class="game-hero__inner">
-            <div class="game-hero__text">
-              <p class="eyebrow">${esc(g.studio.name)}</p>
-              <h1>${esc(g.name)}</h1>
-              ${subtitle}
-              <span class="status-badge ${badgeClass}">${badgeLabel}</span>
-              <p class="game-hero__tagline">${esc(g.tagline)}</p>
+        <section class="game-detail-top">
+          <div class="game-detail-top__inner">
+            <div class="game-detail-left">
+              ${videoHtml}
+              <p class="game-detail-desc">${esc(g.tagline)}</p>
               <div class="game-tags">${tags}</div>
-              <div class="hero-btns">${steamBtn}${presskitBtn}</div>
             </div>
-            <div class="game-hero__img">${img}</div>
+            <div class="game-detail-right">
+              ${capsule}
+              <div class="game-detail-info">
+                <p class="eyebrow">${esc(g.studio.name)}</p>
+                <h1 class="game-detail-title">${esc(g.name)}</h1>
+                ${subtitle}
+                <span class="status-badge ${badgeClass}">${badgeLabel}</span>
+                <div class="hero-btns">${steamBtn}${itchBtn}${presskitBtn}</div>
+              </div>
+            </div>
           </div>
         </section>`;
     }
@@ -623,13 +681,12 @@
         document.getElementById('loading').remove();
         document.body.insertAdjacentHTML('afterbegin', renderNav(game));
         document.body.insertAdjacentHTML('beforeend', `
-          ${renderHero(game)}
+          ${renderDetailTop(game)}
           <div class="content-wrap">
             <div class="content-grid">
               <div class="content-main">
                 ${renderAbout(game)}
                 ${renderFeatures(game)}
-                ${renderVideo(game)}
                 ${renderScreenshots(game)}
               </div>
               ${renderFactsheet(game)}
