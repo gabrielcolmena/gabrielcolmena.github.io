@@ -1,7 +1,15 @@
 {
   "permissions": {
     "allow": [
-      "Bash(ls *.css *.js)"
+      "Bash(ls *.css *.js)",
+      "Bash(cp \"/Users/gabrielcolmenares/Work/Personal/GameDev/DeckBuilderCombat/Marketing/presskit.zip\" \"/Users/gabrielcolmenares/Work/Personal/Web/astero.games/public/presskit/rust-and-ruin/rust-and-ruin-presskit.zip\" && ls -lh \"/Users/gabrielcolmenares/Work/Personal/Web/astero.games/public/presskit/rust-and-ruin/\")",
+      "Bash(python3 -m json.tool data/rust-and-ruin.json)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(awk '/\\\\.factsheet[ _]/{p=1} p&&/\\\\{/{print NR\": \"$0} /^    \\\\/\\\\* ── [A-Z]/{if\\(p&&seen\\)exit; if\\($0 ~ /FACTSHEET/\\)seen=1}' games/rust-and-ruin/index.html)",
+      "Bash(sips -g pixelWidth -g pixelHeight \"/Users/gabrielcolmenares/Work/Personal/Web/astero.games/public/images/rr/key-art-horizontal.png\")",
+      "Bash(awk '/pixelWidth|pixelHeight/{printf \"%s \",$2}')",
+      "Read(//Users/gabrielcolmenares/.ssh/**)",
+      "Bash(ssh-add -l)"
     ]
   }
 }

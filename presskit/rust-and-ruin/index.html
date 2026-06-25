@@ -125,6 +125,21 @@
       font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.1em;
     }
     .pk-hero__meta .dot { color: var(--border); }
+    .pk-hero__download {
+      display: inline-flex; align-items: center; gap: 10px;
+      align-self: flex-start; margin-top: 12px;
+      background: var(--orange); color: var(--bg);
+      font-family: var(--mono); font-size: 12px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      padding: 14px 26px; border-radius: 2px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .pk-hero__download::before { content: '↓'; font-size: 14px; }
+    .pk-hero__download:hover { background: var(--coral); transform: translateY(-1px); }
+    .pk-hero__download span {
+      font-family: var(--mono); font-size: 10px; font-weight: 400;
+      letter-spacing: 0.1em; opacity: 0.7; text-transform: none;
+    }
 
     /* ── LAYOUT ─────────────────────────────────────────── */
     .pk-wrap {
@@ -180,7 +195,6 @@
       gap: 20px; padding: 13px 0; border-bottom: 1px solid var(--border);
       align-items: baseline;
     }
-    .fact-row:first-child { border-top: 1px solid var(--border); }
     .fact-key {
       font-family: var(--mono); font-size: 9px; letter-spacing: 0.22em;
       text-transform: uppercase; color: var(--muted); padding-top: 2px;
@@ -202,7 +216,6 @@
       padding: 13px 0; border-bottom: 1px solid var(--border);
       font-size: 15px; color: #ccc; line-height: 1.5;
     }
-    .feature-item:first-child { border-top: 1px solid var(--border); }
     .feature-item::before { content: '→'; color: var(--orange); font-size: 13px; flex-shrink: 0; }
 
     /* ── SCREENSHOTS ────────────────────────────────────── */
@@ -259,7 +272,6 @@
       gap: 20px; padding: 13px 0; border-bottom: 1px solid var(--border);
       align-items: baseline;
     }
-    .credit-row:first-child { border-top: 1px solid var(--border); }
     .credit-role {
       font-family: var(--mono); font-size: 9px; letter-spacing: 0.22em;
       text-transform: uppercase; color: var(--muted);
@@ -325,6 +337,9 @@
       <a href="/" class="nav__back">astero.games</a>
       <div class="nav__right">
         <a href="/games/rust-and-ruin/" class="nav__link">Game page</a>
+        <a href="/presskit/rust-and-ruin/rust-and-ruin-presskit.zip" download
+           class="nav__link"
+           onclick="gtag('event','file_download',{'event_category':'presskit','event_label':'rust_and_ruin_presskit_zip'})">Download presskit</a>
         <a href="mailto:gabriel@astero.games?subject=Rust%20%26%20Ruin%20%E2%80%94%20Press%20inquiry"
            class="nav__cta">Press inquiry</a>
       </div>
@@ -344,6 +359,11 @@
         <span class="dot">·</span>
         <span>TBD</span>
       </div>
+      <a href="/presskit/rust-and-ruin/rust-and-ruin-presskit.zip" download
+         class="pk-hero__download"
+         onclick="gtag('event','file_download',{'event_category':'presskit','event_label':'rust_and_ruin_presskit_zip'})">
+        Download presskit <span>ZIP · 109 MB</span>
+      </a>
     </div>
   </header>
 
@@ -411,7 +431,7 @@
           </div>
           <div class="fact-row">
             <span class="fact-key">Team Size</span>
-            <span class="fact-val">3</span>
+            <span class="fact-val">2</span>
           </div>
           <div class="fact-row">
             <span class="fact-key">Est. Price</span>
@@ -478,12 +498,6 @@
             <p class="team-bio">Mobile software engineer from Uber. Indie game developer. Full-time on Rust &amp; Ruin.</p>
           </div>
           <div class="team-card">
-            <div class="team-avatar" style="border:1px solid #4ECDC4;color:#4ECDC4">AB</div>
-            <h3>Arturo Berrios</h3>
-            <p class="team-role" style="color:#4ECDC4">Art Director</p>
-            <p class="team-bio">Studied video game concept art in Madrid. Defining the visual identity and world of Rust &amp; Ruin.</p>
-          </div>
-          <div class="team-card">
             <div class="team-avatar" style="border:1px solid #E8845A;color:#E8845A">CM</div>
             <h3>Cristofer Moreno</h3>
             <p class="team-role" style="color:#E8845A">Composer &amp; Sound Designer</p>
@@ -499,10 +513,6 @@
           <div class="credit-row">
             <span class="credit-role">Lead Developer &amp; Designer</span>
             <span class="credit-name">Gabriel Colmenares</span>
-          </div>
-          <div class="credit-row">
-            <span class="credit-role">Art Director</span>
-            <span class="credit-name">Arturo Berrios</span>
           </div>
           <div class="credit-row">
             <span class="credit-role">Composer &amp; Sound Designer</span>
@@ -539,7 +549,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer__inner">
-      <p class="footer__copy">© 2025 <span class="hi">Astero Games</span> · Rust &amp; Ruin Presskit</p>
+      <p class="footer__copy">© 2026 <span class="hi">Astero Games</span> · Rust &amp; Ruin Presskit</p>
       <a href="/" class="footer__back">astero.games</a>
     </div>
   </footer>
